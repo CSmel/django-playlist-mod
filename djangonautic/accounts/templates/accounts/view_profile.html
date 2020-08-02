@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+  <h1>Update Profile</h1>
+  <p>Welcome!</p> <a href="{% url 'accounts:updateProfile' pk=user.id %}">Edit Profile</a>
+<div class="create-article">
+<h2>View Your Profile, !</h2>
+<img class="large-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">
+{{ user.first_name}} {{user.last_name}}
+<br />{{ user.get_username}}
+<br> Location:{{user.profile.location}}
+<br />Birthday: {{user.profile.birthdate}}
+<br />Website:  {{user.profile.website}}
+<br />Quote: {{user.profile.quote}}
+
+  <img src="{{ article.thumb.url }}">
+<script src="/static/slugify.js"></script>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base_layout.html' %} {% block content %}
+<h1>Update Profile</h1>
+<p>Welcome!</p>
+<div class="create-article">
+  <h2>Update Your Profile, {{ user.get_username}}!</h2>
+  <!-- Material form is just a materialize thing for django forms -->
+  <div class="col s12 m8 offset-m2">
+
+
+
+    <form id="ajax" action="." method="POST" class="padding" enctype="multipart/form-data" ">
+       {% csrf_token %}
+       {{ formset.management_form }}
+         <div id="test">
+           <img  id="photo" class="large-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">
+           </div>
+      {{avatar.as_p}}
+      <div id="talk">
+
+        </div>
+      <div >edit avatar</div>
+      <button id="editbutton" name="form-1-submit" type="submit" value="edit" class="btn-floating btn-large waves-light waves-effect">Submit</button>
+      </form>
+    <div class="card">
+      <div class="card-content">
+        <h2 class="flow-text">Update your information</h2>
+        <form action="." method="POST" class="padding" enctype="multipart/form-data">
+         {% csrf_token %} {{ noodle_form.as_p }} {{ form }}
+          <div class="divider"></div>
+          {{ formset.management_form }}
+
+          {{ formset.as_p }}
+          <input name="form-2-submit" type="submit" class="btn-floating btn-large waves-light waves-effect"><i class="large material-icons">done</i></input>
+          <a href="#" onclick="window.history.back(); return false;" title="Cancel" class="btn-floating waves-effect waves-light red"><i class="material-icons">history</i></a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/static/carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+                  $('#ajax').submit(function(e) {
+                      e.preventDefault();  // disables submit's default action
+                      var data = new FormData($('#ajax').get(0));
+                      console.log(data);
+                      $.ajax({
+                          url:  "/accounts/update_profile/1/",
+                          type: 'POST',
+                          data: data,
+                          processData: false,
+                          contentType: false,
+                          success: function(data) {
+                              //data = JSON.parse(data); // converts string of json to object
+                              $('#photo').html('<img src="'+data.url+ '" />');
+                              // <h2>title</h2> You do not use 'title' in your project !!
+                              // alt=title see previous comment
+                          }
+                      });
+                      return false;
+                  });
+              });
+</script>
+<script src="/static/slugify.js"></script>
+{% endblock %}
