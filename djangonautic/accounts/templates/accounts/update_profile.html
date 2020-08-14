@@ -1,35 +1,49 @@
-{% extends 'base_layout.html' %} {% block content %}
+{% extends 'base_layout.html' %} {% block content %}{% load static %}
+
 <h1>Update Profile</h1>
 <p>Welcome!</p>
 <div class="create-article">
   <h2>Update Your Profile, {{ user.get_username}}!</h2>
   <!-- Material form is just a materialize thing for django forms -->
   <div class="col s12 m8 offset-m2">
+    <div class="results">
+
+    </div>
 
 
 
-    <form id="ajax" action="." method="POST" class="padding" enctype="multipart/form-data" ">
-       {% csrf_token %}
-       {{ formset.management_form }}
-         <div id="test">
-           <img  id="photo" class="large-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">
-           </div>
+
+
+    <form action="." id="id_ajax_upload_form" method="POST" class="padding" enctype="multipart/form-data" novalidate="">
+      {% csrf_token %} {{ formset.management_form }}
+      <div id="test">
+
+        {% if user.profile.avatar.url|length > 0 %}
+        <img class="large-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">    {% else %}
+        <img class="large-profile" src="{% static 'defaultVadar.png' %}" alt="larg profile image">
+        {% endif %}
+
+        <button id="edit-avatar">Edit</button>
+<ul>
+  <li>
+    <button id="upload-photo" style="display: none" class="avatar-sub-button">Upload a photo...</button>
+    </li>
+    <li>
+      <button id="remove-photo"style="display: none" class="avatar-sub-button">Remove photo</button>
+      </li>
+  </ul>
+      </div>
       {{avatar.as_p}}
-      <div id="talk">
+      <input name="form-1-submit" type="submit" value="edit" class="hide-me"/>
 
-        </div>
-      <div >edit avatar</div>
-      <button id="editbutton" name="form-1-submit" type="submit" value="edit" class="btn-floating btn-large waves-light waves-effect">Submit</button>
-      </form>
+    </form>
     <div class="card">
       <div class="card-content">
         <h2 class="flow-text">Update your information</h2>
         <form action="." method="POST" class="padding" enctype="multipart/form-data">
-         {% csrf_token %} {{ noodle_form.as_p }} {{ form }}
+          {% csrf_token %} {{ noodle_form.as_p }} {{ form }}
           <div class="divider"></div>
-          {{ formset.management_form }}
-
-          {{ formset.as_p }}
+          {{ formset.management_form }} {{ formset.as_p }}
           <input name="form-2-submit" type="submit" class="btn-floating btn-large waves-light waves-effect"><i class="large material-icons">done</i></input>
           <a href="#" onclick="window.history.back(); return false;" title="Cancel" class="btn-floating waves-effect waves-light red"><i class="material-icons">history</i></a>
 
@@ -38,31 +52,119 @@
     </div>
   </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/static/carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script type="text/javascript">
-  $(document).ready(function() {
-                  $('#ajax').submit(function(e) {
-                      e.preventDefault();  // disables submit's default action
-                      var data = new FormData($('#ajax').get(0));
-                      console.log(data);
-                      $.ajax({
-                          url:  "/accounts/update_profile/1/",
-                          type: 'POST',
-                          data: data,
-                          processData: false,
-                          contentType: false,
-                          success: function(data) {
-                              //data = JSON.parse(data); // converts string of json to object
-                              $('#photo').html('<img src="'+data.url+ '" />');
-                              // <h2>title</h2> You do not use 'title' in your project !!
-                              // alt=title see previous comment
-                          }
-                      });
-                      return false;
-                  });
-              });
+
+//   $('#edit-avatar').on('click', function(e){
+//     e.preventDefault()
+//     $('.avatar-sub-button').toggle(); // Shows
+//
+//   })
+//
+//      $('#upload-photo').click(function(e){
+//        e.preventDefault();
+//        $("#id_profile-0-avatar").click();
+//
+//      })
+//      $('#remove-photo').click(function(e){
+//        $('#profile-0-avatar-clear_id').is(":checked")
+//        e.preventDefault();
+//        $("#profile-0-avatar-clear_id").click();
+//
+//      })
+// $('#id_profile-0-avatar').on('change', function(){
+// var $form = $(this).closest('form');
+//   $form.find('input[name=form-1-submit]').click();
+// });
+//
+// $('#profile-0-avatar-clear_id').on('change', function(){
+// alert('hi')
+// var $form = $(this).closest('form');
+//   $form.find('input[name=form-1-submit]').click();
+// });
+//
+//
+//
+//  var p = document.querySelectorAll('p');
+//  p[1].style.visibility = "hidden";
+//  p[2].style.visibility = "hidden";
+//  var input = document.querySelectorAll('input');
+//  input[13].style.display = "none";
+
+
+
+ // function getCookie(name) {
+ //     var cookieValue = null;
+ //     if (document.cookie && document.cookie !== '') {
+ //         var cookies = document.cookie.split(';');
+ //         for (var i = 0; i < cookies.length; i++) {
+ //             var cookie = jQuery.trim(cookies[i]);
+ //             // Does this cookie string begin with the name we want?
+ //             if (cookie.substring(0, name.length + 1) === (name + '=')) {
+ //                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+ //                 break;
+ //             }
+ //         }
+ //     }
+ //     return cookieValue;
+ // }
+ // var csrftoken = getCookie('csrftoken');
+ //
+ // function csrfSafeMethod(method) {
+ //     // these HTTP methods do not require CSRF protection
+ //     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+ // }
+ // $.ajaxSetup({
+ //     beforeSend: function(xhr, settings) {
+ //         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+ //             xhr.setRequestHeader("X-CSRFToken", csrftoken);
+ //         }
+ //     }
+ // });
+ //
+ //
+ //
+ //  // form upload
+
+    $('#id_ajax_upload_form').submit(function(e) {
+      e.preventDefault()
+      $form = $(this)
+      var formData = new FormData(this);
+      //alert(formData)
+      $.ajax({
+        url: window.location.pathname,
+        type: 'POST',
+        data: formData,
+        //csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        cache: false,
+        success: function(response) {
+
+          $('.error').remove();
+             console.log(response)
+             if(response.error){
+                 $.each(response.errors, function(name, error){
+                     error = '<small class="text-muted error">' + error + '</small>'
+                     $form.find('[name=' + name + ']').after(error);
+                 })
+             }
+             else{
+               alert(response.message)
+                  window.location = ""
+             }
+        },
+
+        cache: false,
+        contentType: false,
+        processData: false
+      });
+
+    });
+
+
+
+  // end
 </script>
-<script src="/static/slugify.js"></script>
+
+
 {% endblock %}

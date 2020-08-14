@@ -7,7 +7,7 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from .models import Profile
 #from .models import UserProfile
-from .forms import UserForm
+from .forms import UserForm, ImageFileUploadForm
 from django.forms.models import inlineformset_factory
 from django.core.exceptions import PermissionDenied
 # Create your views here.
@@ -74,6 +74,7 @@ def view_profile_view(request):
 def update_profile_view(request, pk):
     user = User.objects.get(pk=pk)
     user_form = UserForm(instance=user)
+
     #update_avatar = UpdateAvatar(instance=user)
     ProfileInlineFormset = inlineformset_factory(User, Profile, fields=('user', 'location', 'birthdate', 'website', 'quote'))
     ProfileInlineFormsetAvatar = inlineformset_factory(User, Profile, fields=('avatar',))
@@ -81,14 +82,23 @@ def update_profile_view(request, pk):
     update_avatar = ProfileInlineFormsetAvatar(instance=user)
     if request.user.is_authenticated and request.user.id == user.id:
         if 'form-1-submit' in request.POST:
+
             if request.method == "POST":
-                if request.is_ajax():
                     update_avatar = ProfileInlineFormsetAvatar(request.POST, request.FILES, instance=user)
+
                     if update_avatar.is_valid():
                         created_user = update_avatar.save(commit=False)
                         update_avatar = ProfileInlineFormsetAvatar(request.POST, request.FILES, instance=user)
                         update_avatar.save()
-                        return HttpResponseRedirect('/accounts/view_profile/')
+                        return JsonResponse({'error': False, 'message': 'Uploaded Successfully'})
+                        #return HttpResponseRedirect('/accounts/view_profile/')
+                    else:
+                        return JsonResponse({'error': True, 'errors': form.errors})
+            else:
+                update_avatar = updateAvatar()
+                return render(request, 'accounts/update_profile.html', {"avatar": update_avatar})
+
+
 
         if 'form-2-submit' in request.POST:
             if request.method == "POST":
@@ -144,3 +154,14 @@ def update_avatar_view(request):
         })
     else:
         raise PermissionDenied
+def django_image_and_file_upload_ajax(request):
+    if request.method == 'POST':
+       formA = ImageFileUploadForm(request.POST, request.FILES)
+       if formA.is_valid():
+           formA.save()
+           return JsonResponse({'error': False, 'message': 'Uploaded Successfully'})
+       else:
+           return JsonResponse({'error': True, 'errors': formA.errors})
+    else:
+        formA = ImageFileUploadForm()
+        return render(request, 'accounts/django_image_upload_ajax.html', {'formA': formA})

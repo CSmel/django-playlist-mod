@@ -9,7 +9,7 @@
   <title>Hompage</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="{% static 'styles.css' %}">
 
 </head>
@@ -19,7 +19,14 @@
 <h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}"/></a></h1>
 <nav>
 <ul>
-  {% if user.is_authenticated %} <a href="{% url 'accounts:viewProfile'%}"<h2>Hey {{ user.get_username}} </h2><img class="small-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">
+  {% if user.is_authenticated %} <a href="{% url 'accounts:viewProfile'%}"<h2>Hey {{ user.get_username}} </h2>
+
+    {% if user.profile.avatar.url|length > 0 %}
+    <img class="small-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">    {% else %}
+    <img class="small-profile" src="{% static 'defaultVadar.png' %}" alt="larg profile image">
+    {% endif %}
+
+
 <li>
 <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
 {% csrf_token %}

@@ -10,4 +10,5 @@ url(r'^view_profile/$',views.view_profile_view, name="viewProfile"),
 url(r'^signup/$',views.signup_view, name="signup"),
 url(r'^login/$', views.login_view, name="login"),
 url(r'^logout/$', views.logout_view, name="logout"),
+url(r'^ajax/$', views.django_image_and_file_upload_ajax, name="ajax"),
 ]

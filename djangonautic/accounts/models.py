@@ -19,3 +19,10 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
+
+
+class ProfileNew(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    photo = models.ImageField(upload_to="images")
+    attachment = models.FileField(upload_to="attachments")
+    phone = models.CharField(max_length=10)

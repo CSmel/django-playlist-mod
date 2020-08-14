@@ -1,7 +1,7 @@
 from django import forms
 from . import models
 from django.contrib.auth.models import User
-
+from .models import ProfileNew
 
 class UserForm(forms.ModelForm):
     class Meta:
@@ -14,4 +14,9 @@ class UpdateProfileForm(forms.ModelForm):
 class UpdateAvatar(forms.ModelForm):
     class Meta:
         model = models.Profile
-        fields = ['avatar']
+        fields = ['avatar',]
+
+class ImageFileUploadForm(forms.ModelForm):
+    class Meta:
+        model = ProfileNew
+        fields = ('phone', 'photo', 'attachment',)

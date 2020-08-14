@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="20bf50c5-cfc6-4e17-a480-0270a3ad5296" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/djangonautic/assets/defaultVadar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_0Ld1Jop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_0fSriyd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_0yHDM6s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_2eQ4Rv9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_2nxMerI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_3ibFy0V.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_54veWvH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_58A6yYx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_7ZFOkvu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_BL5Rx13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_C3HaClN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_GOTftnA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_GkZ7isu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_IcnHRPY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_IjA4fYs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_KESWGHj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_KkNLoef.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_LunYUKq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_OVb2o2u.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_QWLMx18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_S6GxKiC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_U6OkYbH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_VEqnlHM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_VIYpD6a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_W2bAPV5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_WtBf4H0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_ZrsIXir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_bdsWeao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_blbORUI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_cQsnHmn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_cS30TSj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_d04wDC9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_ePJW9i3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_g45E6xy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_gOk6g7s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_hpyeWcN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_kzhGCnA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_nvb5kbw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_oJYQ4V3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_oqcbFBB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_p9sIe7y.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_qntzJwv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_rNSWmGP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_skNRF15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_tvr7Crv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_yZARGOC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_z0KPqMf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_zN20t4n.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/defaultVadar_zTEG9XL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_4uYJ6AP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_6HsEsDR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_81QbUMv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_8GN2pzF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_9BAYEr1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_9FBxErK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_ATCsLOx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_BeQMAtH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_BqYrA3z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_DMbTFK3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_DO3VpkR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_EpQ3tu0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_H40Wl3E.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_HJBVkBK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_HeFnOAu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_IQ3fawd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_J6yFyo5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_JgrQqfU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_JnUeguC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_KANlzVj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_KZrhB5S.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_KoPsK6H.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_MXydku6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_McGOSJb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_NwLQvUk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_PYDLokt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_PrdoLjT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_Sm4xmot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_TLta1eS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_UMcq1tl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_WAHpuwv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_YW878fs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_YjYlVQx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_YlBsdmx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_ZEYaOyY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_byrdxsg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_dkazvzz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_dxfBNxm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_fKthvfC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_gXHX0vu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_jrC3dwO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_kkrwAKc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_mkbD8rs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_nlz20mq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_nyccUwT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_q97mz91.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_qpzypKo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_r8yO5by.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_s50bxqQ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_uBIKkNI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_uDXvqah.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_ut2Xdxl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_wadtpkS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_x7axYAq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_yQGie6k.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_yqfYCQ9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_ys16ZGk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/logo_zaBBSW7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_2nOUhIS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_2o6gf7z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_2rDQiRG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_2t61seU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_34D5P2S.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_36SvMcM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_3KNH0rv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_3gCLWOP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_4ByylDT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_4OvF1dT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_4ncvQtx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_4wuIhZ1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_5D4I6U9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_5OK19oy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_5UiWY7q.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_5WGeXIq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_5mj9SIH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_5mjNdZq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_5q9NneB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_5sDopyM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_63U9dsZ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_6DqZACm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_6H0pIJ6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_6PG4qBo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_6W6Gnjj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_6bWOJ11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_6d2wm68.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_6ph4bBW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_6rUfWtK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_6ymEnk3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_6zHsEug.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_72WAjpq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_7CIyrHh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_7OvibRt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_7WJNpp5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_7cT552J.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_7nvgHkI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_7o5TCGv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_7qgf7vz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_85GPgCA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_8RzrZBE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_8qqHgUB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_8rJ2gJY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_8v3Onqg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_91PvUSB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_9AyhXVB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_9QbyCxq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_9XmcQUr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_9b3Vb2S.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_9fuKf4D.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_9sr3cfQ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_A5wBbwc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_AJLvRe1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_AZxTvzk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_AfpGduR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_AfyahVv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_AkmaUDX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_B03uBO7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_B6O9R2O.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_BK11w3J.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_BR0Xg5Z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_BatJoeR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_BbaMpCH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_BeSKEmd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Bo0IlD5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_BwyBaVh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_C75A3xJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_CIoxdet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_CO9se3C.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_COwcCCx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_D3UOn7Q.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_DKP1e98.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_DilYmRW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Dqs6Cgf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Dt3mEWE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_DvJvtZF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_EFEb1Nj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_EV9y0Ed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_EZxOiHO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_EaPFI9x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_EwDhVhx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_EwGCkuu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_F9U9gCa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_F9V7qmT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_FOgDuat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_FxATHbh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_G2fsWYS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_G42IIpe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_G6hWxrd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_GAsonaI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Gk5BpzJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Gp13bLR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_GvtYGh9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_HFPJqS6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_HFwLxAY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_HLuo6iM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_HfE8qbf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_HhFk2I4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_HlKjgfV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_HsKedLC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Hy5FUyF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_I18sF68.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_IBD1s8y.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ICHi6pe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_IVtkoae.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ImAf8AY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_IsBBuWD.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_It1WkIC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_J6sAjud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_JFz79FF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Jl6weEU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_KEkLO2z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_KRT1Gw7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Kq6fDHl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Kqx6h2z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_KtIvVRT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Lqs7IrK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_MAFNTzx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_NLuHULs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_NhlKjLT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_NiYfvBW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_O1s2Nqj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ONk7fAf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_OSfiNPv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_OeJkNKm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_OubRNa5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_PTQGyG1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_PdoxY7D.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_PhWiJQX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_QLEY3B0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_QM93BX0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_QT22nX5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_QTnuV2Q.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_QUNBQh1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_RNMh2HX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_RQ943DZ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_RRZGfNt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_RbX3Ew8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Rjp3Iwo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_RkmKOoX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_RvbRWtP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_RyXpfHu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_S3r6liK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_S7nf9Qd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_SbkViXo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_SfxhT8w.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_TEPlc0v.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_TGPOSN5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_TGvEEUL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_TWU31iP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_U3zscpf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_UO6Ix8Y.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_UQ59ewP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_UiCH9ZW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_UlAPYga.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_UoZj78E.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_UvLtlqF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_V6bz42k.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_V8mheIL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_V8oeGMr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_VESth1F.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_VGUBuRj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_VNoKhiu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_VhE9S5f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_W2q3CVE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_WCBPpvc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_WCPNF60.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_WG4JPOy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_WNC6FVq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_WjbQqXu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_WmSUhpZ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_Wo0NFxG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_WynyvhY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_X69OVdk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_X7srRzf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_XNqoLRV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_XdCuORM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_XkztouJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_XoR1433.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_XvoOwEf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_YIaQqs3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_YXFX7QH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_YtGWOEe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ZADqCA8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ZK6tiGo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ZRfw5Qv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ZYHXXnJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_aPpHQKx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_aStzeED.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_aTT3dis.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_aZepOjR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_awyB75W.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_b6FWk3X.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_bAIMgUr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_bKzi4bG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_bwlR9J3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_bxYOkFL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_c46pooN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_cV2wjKk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_cgiEFKS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_cjxSQga.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_crZMqhO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_cryniqe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_csGThYp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_dKPnpoP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_dbzjoEi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_djGbfBV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_dlxpqZ1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_e65vYIB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_eEaPNVa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_eUcoS4U.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_evzNc4K.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_exc2m3X.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ezBm6BK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_fOsRdL7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_fbYXDD7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_fpCiidL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ftnWfAr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_g5F5ZDR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_gOoV8Yq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_gP8PxYa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_gZvliGJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_gZyu8Ga.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_gs53rOf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_h08i8I4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_haAzjks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_hiSUJdk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_hwvKgbU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_hxOXxpg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_iAvhCrQ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_iRLQPDI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_iXin8w8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ihz9Wq9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ijbdb6n.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ivHlFYU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_iw5Hkdh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_izZDqUo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_j3hcFzI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_jGcV6wP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_jMIGprz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_jNSjUXE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_jdlvhGS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_k5FUYpu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_kqnmByq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_krrhWVZ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_lDwM7wB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_lRdgGSS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ldIbpE8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_m5YtVM4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_m8T7JpZ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_mAxFL4C.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_mBYWe4t.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_mFLtetF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_mIAbYHz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_mQzZM6m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_madrwLE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_mdeqLuY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_mtN8c18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_n2T6oHz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_nJyq8P7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_nSa59oi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_nhVLS47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_o1HlnZN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_o95KRxL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_oEhos92.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_p4tKlyB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_p7U90wh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_pKlRQkf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_pLQ7SU1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_pNmzcz9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_pW7MvxF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_pZVzEQQ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_pbOy0zX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_phh7RG7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_pk1pCz8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_q0yQDZP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_qAfvZcc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_qLkArdO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_qNKPb9n.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_qwk1HnF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_qwz4HcP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_r8hMGNA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_rFUiQL0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_rrK5Y2A.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_rt00dAe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_rys7bGD.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_s1i4Ht5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_sEjQLjn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_sjWa8FH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_slNbM7L.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_sr3aJk8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ssxQnIA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_sv0Xwas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_tLLT9vO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_tLbslXj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_tR5RZ0c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_tc80Ev5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_tw96k4Z.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_tzRBht7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_udWqi7w.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_uwfisj6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_v8QKvBl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_vHYH80F.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_vSGCyih.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_vdfZhrB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_vhpFgsk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_w2FYCWJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_wbAlG91.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_wozgTY8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_wqXjoh1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ws17G2V.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_x8VY2yd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_xPI1z41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_xQJVqkm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_xewkkWX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_xm0TwQY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_xrapQbi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_xthOYeF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_y1kRUjy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_y6pcAP4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_yAelfds.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_yG8PNNw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_yOtlGlK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_yRTTqRS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_yYV6sXJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ybHCs9Y.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_yeH44X5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ygvqiNF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ynDKFWe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_yqWDt5e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ysQiJhQ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_ytDrhvX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_zVZIAxC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_zdloU0a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_zgFclzF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/profile_znjWuL4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_3etvzcV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_3gS0itT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_3rxmWwV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_4cCgzd9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_4dWYdy3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_6Ux3TTb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_6bMpkHH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_6dQiK7o.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_7NvpJLx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_7iYuepp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_7s5CXLA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_80UAKGk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_8EM6lPd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_9FMRKrX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_9Vj8WOT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_9awVYsm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_9hz1U4Q.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_A1RxHxF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_AFVxhTj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_AtcsNZC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_Bdr2YfP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_C5nzrmS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_D7fFMZh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_D9nbAvJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_DCCpN68.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_DL0UsN4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_Dv8apWb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ESOjiAL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ESm3Z3U.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ET7GQUi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_F4lOtZp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_FnFpNMU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_FostNGm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_FuRIvqZ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_G2TJJI1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_Gc1x5mU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_GjAo08G.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_H90igrJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_Hxxbl0L.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_HyJhXqt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_INTvez4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ISbxkeA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_J8IbHbB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_JE9GdA7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_JZ6PhTX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_JfVnTGX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_JuxFz8m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_JxXzVO7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_K4GXLo7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_KS7MjEI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_KtjdFAE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_KwnWa21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_LLpCH1L.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_M12twY0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_MDgU2DX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_MSzLfTy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_NHXC4uQ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_NIQ3hLF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_NLSdnyM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_Nefv9Zv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_OtK4tep.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_POeLLP2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_Q8j2S9C.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_QZvwE76.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_QtB0XIx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_QxVWtHh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_RCpZHWf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_Rqnax3D.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_RsFjJCi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_SK9aQkE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ScQ2EB6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_SoJfQA1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_T09zHMD.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_TItzNNu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_TNeUgFX.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_UJlXBoM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_UizFZwb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_V8BDfqG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_VDTLg1V.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_W5rBvzT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_W86JKcV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_WOZ12Tg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_WX31Xdy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_Wdf1Ot2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_XQwX5zV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_Xh8tA3P.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ZYkkmCV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_aPHIuSv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_afbLkA8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_athArZh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_axvdqdD.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_b3bGgPW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_bXGZ00G.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_bYUQheR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_bqBdfOg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_bv9j2i9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_bxkBNrE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_cFFBBkb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_cPlQGPm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_cZLRYr0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ca4ilDf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_cc5LaQM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_deLcp8m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_eomtTJx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ero1sch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_et4BGw6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_fSmgXvj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_funmaV3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_gJdkKYN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_gMS5l3o.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_gOfHGOh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_gOkiUJS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_gQrzkcC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_gjxj5HB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_gsJSrNW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_hTDdq5g.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_hmUVzZ6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_i1eeXDu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_iTIah3a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ifu9DA0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_inDEDhV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_iu46pmk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_jIL0QB5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_jMylNiR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_jRA8WzJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_jRxcfVi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_jXdNQH5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_kjFvwio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_lIF5JCK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_lPVmZH2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_lmUM9Ez.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_lvK0PGQ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_lw8YCIG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_lwsJKKq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_mCcotw0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_mClG3xM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_mqfihYS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_my2D1ed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_n9yF03d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_nVcw1o6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_nVmhfBa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_nflq0VW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_nhP4vtA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_npGmFm9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_nq1HddE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_o4OFjUj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_o99Xc6e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_oTVScf8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_otMqcYY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_otVF720.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_pH804SP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_pMjAKm5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_pmmKmch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_qEGsskL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_qQFTQds.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_qhYTXwF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_qrHTQHj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_rG49RrQ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_rUgdtxf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_s63BtWu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_sVAL3BR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_sYcLzCk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ssxjyb1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_tHaaXjZ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_u1nZBHG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ubbmUf9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_usxzcsI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_vtZcBZC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_wD3cRIG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_wQ7Ssfl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_wYXG89X.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_wYzQRJE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_xgiLFpw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_xhJnx0T.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_yCUV1TF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_yRPDmQA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangonautic/media/stars_ysbtDCW.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/accounts/templates/accounts/update_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/accounts/templates/accounts/update_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/accounts/templates/accounts/view_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/accounts/templates/accounts/view_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/assets/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/GIT.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/bullet.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/button87.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/default.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/logo_2sxkdjv.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/logo_DbdNFhW.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/images/logo_33VEDNn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/logo_FJo1Aoy.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/logo_0TvceYb.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/logo_NB2X6QB.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/logo_19yesbz.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/logo_P68y0UA.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/logo_21lpJo0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/logo_WmSrdGp.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/logo_2SfGAoH.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/logo_XMTv5aE.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/logo_2yAB957.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/logo_yfOjsMI.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/logo_40BOuVy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/logo_zfga38O.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/logo_4q01i0r.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_23Zaw1J.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/images/profile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_4Yfihlr.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_0Bn3U0f.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_7R1o2OW.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_0HMsfKs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_Ah6Gjvf.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_0Rbzm3g.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_B7s8oOH.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_0Rih22U.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_HKeK4Iz.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_0iWcuVK.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_LlkYadJ.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_0n3kI9C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_NZm2wrP.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1AoiUql.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_Pi54Iwt.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1DrYD2X.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_TWoVt5t.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1KHNoQW.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_Y1HmPTw.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1Mnyxuh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_cBaJ5Mi.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1PQsbbQ.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_cQAhl81.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1TutCgC.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_eHwTBxr.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1VnzQLQ.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_eKvhGFK.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1X0x1Qa.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_gK5yRI7.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1aF3w8E.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_hhVmrjM.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1rhKk9L.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_oItCo7m.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1sZYCPv.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_rjlDFeT.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_1zcB4SM.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_v6c6EPq.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_2L9Iz18.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/profile_vmEe0SD.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/profile_2kuxzrj.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/stars_3lUMetF.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/stars_0GbujZo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/stars_9krr1mc.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/stars_0PKWkMq.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/stars_BCCpTtl.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/stars_0TO9XrJ.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/stars_Bgvqyzm.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/stars_1oWzi6G.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/stars_LAahrVc.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/stars_23bp3lK.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/stars_QZDbAKX.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/stars_2rXXRiZ.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/stars_T4TI19S.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/stars_33fDP74.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/stars_XPLq2GS.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/stars_36YaLoM.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/stars_Zm0nGsn.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/media/stars_3b2xGLT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/toy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/media/toy_oUPTLYj.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangonautic/templates/base_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/djangonautic/templates/base_layout.html" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/djangonautic/accounts/forms.py">
+          <provider selected="true" editor-type-id="live-pycharm">
+            <state>
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/djangonautic/accounts/templates/accounts/view_profile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1874" />
+    <option name="y" value="-21" />
+    <option name="width" value="1932" />
+    <option name="height" value="1045" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="django-playlist-mod" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\xampp\htdocs\DJANGO\django-playlist-mod" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="django-playlist-mod" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\xampp\htdocs\DJANGO\django-playlist-mod" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="djangonautic" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="django-playlist-mod" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\xampp\htdocs\DJANGO\django-playlist-mod" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="djangonautic" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="accounts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="django-playlist-mod" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\xampp\htdocs\DJANGO\django-playlist-mod" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="djangonautic" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="accounts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="migrations" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="django-playlist-mod" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\xampp\htdocs\DJANGO\django-playlist-mod" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="djangonautic" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="accounts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="django-playlist-mod" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\xampp\htdocs\DJANGO\django-playlist-mod" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="djangonautic" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="accounts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="accounts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\melsa\AppData\Roaming\npm\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="20bf50c5-cfc6-4e17-a480-0270a3ad5296" name="Default Changelist" comment="" />
+      <created>1597268771862</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597268771862</updated>
+      <workItem from="1597268778962" duration="192000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="192000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1974" y="-8" width="1874" height="1096" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497309" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/djangonautic/accounts/forms.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/djangonautic/accounts/templates/accounts/view_profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
