@@ -1,16 +1,18 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+{% block content %}
 
-<html>
-  <head>
-     <title> Django image and file upload using ajax </title>
-  </head>
-<body>
    <form
     enctype="multipart/form-data"
     id="id_ajax_upload_form" method="POST"
     novalidate="">
       {% csrf_token %}
-      {{ formA.as_p }}
-      <input type="submit" />
+
+      {{ noodle_form.as_p }} {{ form }}
+      <div class="divider"></div>
+      {{ avatar.management_form }} {{ avatar.as_p }}
+
+      <input name="form-2-submit" type="submit" />
    </form>
    <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -45,5 +47,4 @@
     });
     // end
    </script>
-</body>
-</html>
+{% endblock %}

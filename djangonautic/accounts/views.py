@@ -7,7 +7,7 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from .models import Profile
 #from .models import UserProfile
-from .forms import UserForm, ImageFileUploadForm
+from .forms import UserForm, ImageFileUploadForm, UpdateAvatar
 from django.forms.models import inlineformset_factory
 from django.core.exceptions import PermissionDenied
 # Create your views here.
@@ -74,45 +74,46 @@ def view_profile_view(request):
 def update_profile_view(request, pk):
     user = User.objects.get(pk=pk)
     user_form = UserForm(instance=user)
-
-    #update_avatar = UpdateAvatar(instance=user)
     ProfileInlineFormset = inlineformset_factory(User, Profile, fields=('user', 'location', 'birthdate', 'website', 'quote'))
     ProfileInlineFormsetAvatar = inlineformset_factory(User, Profile, fields=('avatar',))
     formset = ProfileInlineFormset(instance=user)
     update_avatar = ProfileInlineFormsetAvatar(instance=user)
     if request.user.is_authenticated and request.user.id == user.id:
-        if 'form-1-submit' in request.POST:
 
-            if request.method == "POST":
-                    update_avatar = ProfileInlineFormsetAvatar(request.POST, request.FILES, instance=user)
 
-                    if update_avatar.is_valid():
-                        created_user = update_avatar.save(commit=False)
-                        update_avatar = ProfileInlineFormsetAvatar(request.POST, request.FILES, instance=user)
-                        update_avatar.save()
-                        return JsonResponse({'error': False, 'message': 'Uploaded Successfully'})
-                        #return HttpResponseRedirect('/accounts/view_profile/')
-                    else:
-                        return JsonResponse({'error': True, 'errors': form.errors})
+        if request.is_ajax():
+            user_form = UserForm(request.POST, request.FILES, instance=user)
+
+            update_avatar = ProfileInlineFormsetAvatar(request.POST, request.FILES, instance=user)
+            if user_form.is_valid() or formset.is_valid():
+                created_user = user_form.save(commit=False)
+                update_avatar = ProfileInlineFormsetAvatar(request.POST, request.FILES, instance=created_user)
+                user_form.save()
+                update_avatar.save()
+                return JsonResponse({'error': False, 'message': 'Uploaded Successfully'})
             else:
-                update_avatar = updateAvatar()
-                return render(request, 'accounts/update_profile.html', {"avatar": update_avatar})
+                return JsonResponse({'error': True, 'errors': update_avatar.errors})
 
 
+            update_avatar =  ProfileInlineFormsetAvatar(instance=user)
+            return render(request, 'accounts/django_image_upload_ajax.html', {            "noodle_form": user_form,
+                    "formset": formset,
+                    "avatar": update_avatar,
+                })
 
         if 'form-2-submit' in request.POST:
-            if request.method == "POST":
-                user_form = UserForm(request.POST, request.FILES, instance=user)
 
-                formset = ProfileInlineFormset(request.POST, request.FILES, instance=user)
+            user_form = UserForm(request.POST, request.FILES, instance=user)
 
-                if user_form.is_valid() or formset.is_valid():
-                    created_user = user_form.save(commit=False)
-                    formset = ProfileInlineFormset(request.POST, request.FILES, instance=created_user)
-                    user_form.save()
-                    formset.save()
+            formset = ProfileInlineFormset(request.POST, request.FILES, instance=user)
 
-                    return HttpResponseRedirect('/accounts/view_profile/')
+            if user_form.is_valid() or formset.is_valid():
+                created_user = user_form.save(commit=False)
+                formset = ProfileInlineFormset(request.POST, request.FILES, instance=created_user)
+                user_form.save()
+                formset.save()
+
+                return HttpResponseRedirect('/accounts/view_profile/')
 
         return render(request, "accounts/update_profile.html", {
             #"noodle": pk,
@@ -122,46 +123,3 @@ def update_profile_view(request, pk):
         })
     else:
         raise PermissionDenied
-
-
-# new view for avatar update
-
-def update_avatar_view(request):
-    user = User.objects.get(pk=pk)
-    user_form = UserForm(instance=user)
-
-    ProfileInlineFormset = inlineformset_factory(User, Profile, fields=('avatar', 'location', 'birthdate', 'website', 'quote'))
-    formset = ProfileInlineFormset(instance=user)
-
-    if request.user.is_authenticated and request.user.id == user.id:
-        if request.method == "POST":
-            user_form = UserForm(request.POST, request.FILES, instance=user)
-            formset = ProfileInlineFormset(request.POST, request.FILES, instance=user)
-
-            if user_form.is_valid():
-                created_user = user_form.save(commit=False)
-                formset = ProfileInlineFormset(request.POST, request.FILES, instance=created_user)
-
-                if formset.is_valid():
-                    created_user.save()
-                    formset.save()
-                    return HttpResponseRedirect('/accounts/view_profile/')
-
-        return render(request, "accounts/update_profile.html", {
-            #"noodle": pk,
-            "noodle_form": user_form,
-            "formset": formset,
-        })
-    else:
-        raise PermissionDenied
-def django_image_and_file_upload_ajax(request):
-    if request.method == 'POST':
-       formA = ImageFileUploadForm(request.POST, request.FILES)
-       if formA.is_valid():
-           formA.save()
-           return JsonResponse({'error': False, 'message': 'Uploaded Successfully'})
-       else:
-           return JsonResponse({'error': True, 'errors': formA.errors})
-    else:
-        formA = ImageFileUploadForm()
-        return render(request, 'accounts/django_image_upload_ajax.html', {'formA': formA})
