@@ -11,15 +11,25 @@
   <meta name="author" content="SitePoint">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <link rel="stylesheet" href="{% static '\fontawesome\fontawesome-free-5.14.0-web\css\all.css' %}">
+
 
 </head>
 
 <body>
   <header class="wrapper">
 <h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}"/></a></h1>
+{% if user.is_authenticated %}
+<div class="users-on-off">
+  {% load custom_tags %}
+  {% render_logged_in_user_list %}
+</div>
 <nav>
+
+
+
 <ul>
-  {% if user.is_authenticated %} <a href="{% url 'accounts:viewProfile'%}"<h2>Hey {{ user.get_username}} </h2>
+   <a href="{% url 'accounts:viewProfile'%}"<h2>Hey {{ user.get_username}} </h2>
 
     {% if user.profile.avatar.url|length > 0 %}
     <img class="small-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">    {% else %}
@@ -34,10 +44,14 @@
 <li><a href="{% url 'articles:create' %}" class="highlight">New Article</a></li>
 
 
-{% else %}
-<li><a href="{% url 'accounts:login' %}">Login</a></li>
-<li><a href="{% url 'accounts:signup' %}">Signup</a></li>
-{% endif %}
+{% else %}<nav>
+  <ul>
+    <li><a href="{% url 'accounts:login' %}">Login</a></li>
+    <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+    {% endif %}
+  </ul>
+</nav>
+
 </ul></nav>
   </header>
 <div class="wrapper">

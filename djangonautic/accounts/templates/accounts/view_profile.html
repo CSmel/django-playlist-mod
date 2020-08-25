@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
   <h1>Update Profile</h1>
-  <p>Welcome!</p> <a href="{% url 'accounts:ajax' pk=user.id %}">Edit Profile</a>
+  <p>Welcome!</p> <a href="{% url 'accounts:updateProfile' pk=user.id %}">Edit Profile</a>
 <div class="create-article">
 <h2>View Your Profile, !</h2>
 {% if user.profile.avatar.url|length > 0 %}
@@ -15,7 +15,8 @@
 <br />Birthday: {{user.profile.birthdate}}
 <br />Website:  {{user.profile.website}}
 <br />Quote: {{user.profile.quote}}
-TEST
+
+
   <img src="{{ article.thumb.url }}">
 <script src="/static/slugify.js"></script>
 {% endblock %}

@@ -7,9 +7,11 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from .models import Profile
 #from .models import UserProfile
-from .forms import UserForm, ImageFileUploadForm, UpdateAvatar
+from .forms import UserForm, UpdateAvatar
 from django.forms.models import inlineformset_factory
 from django.core.exceptions import PermissionDenied
+
+
 # Create your views here.
 def signup_view(request):
     if request.method == 'POST':
@@ -68,6 +70,7 @@ def view_profile_view(request):
                 return redirect('articles:list')
         else:
 
+
             form = UserCreationForm
         return render(request, 'accounts/view_profile.html', {'form': form})
 @login_required
@@ -81,7 +84,7 @@ def update_profile_view(request, pk):
     if request.user.is_authenticated and request.user.id == user.id:
 
 
-        if request.is_ajax():
+        if request.is_ajax() and request.method == 'POST':
             user_form = UserForm(request.POST, request.FILES, instance=user)
 
             update_avatar = ProfileInlineFormsetAvatar(request.POST, request.FILES, instance=user)
@@ -123,3 +126,9 @@ def update_profile_view(request, pk):
         })
     else:
         raise PermissionDenied
+
+# # get all users
+# def showthis(request):
+#
+#     all_users= User.objects.all()
+#     return render(request, 'accounts/view_profile.html', {'allusers': all_users})

@@ -1,0 +1,79 @@
+
+<h3>Logged in</h3>
+<div id="logged-in-users">
+{% if users %}
+
+<ul class="user-list">
+    {% for user in users %}
+    <li>{{ user }}<i class="far fa-hand-spock"></i></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+  <h3>Offline</h3>
+  {% if all_users2 %}
+  {% for x in all_users2 %}
+  <ul>
+    <li style="color: grey">
+        {{ x.user }}<i class="fas fa-bed"></i>
+      </li>
+    </ul>
+
+    {% endfor %}
+    {% endif %}
+
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  var csrftoken = getCookie('csrftoken');
+
+  function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+
+  // form upload
+    setInterval(function() {
+        $.ajax({
+            url: window.location.pathname,
+            type:'GET',
+            data:{action: 'online_offline'},
+            success: function(data) {
+              // grab the inner html of the returned div
+                // so you don't nest a new div#refresh-this-div on every call
+                var html = $(data).find('#logged-in-users').html();
+                $('#logged-in-users').html(html);
+              },
+
+
+            error: function(data) {
+                console.log("error")
+                console.log(data)
+            }
+        })
+    }, 5000)
+
+</script>

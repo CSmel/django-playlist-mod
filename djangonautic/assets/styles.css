@@ -48,7 +48,7 @@ nav {
   justify-self: end;
 }
 
-nav li {
+li {
   display: inline-block;
   list-style-type: none;
   margin-left: 20px;
@@ -64,6 +64,13 @@ nav button {
 
 ul {
   list-style-type: none !important
+}
+
+.users-on-off {
+  border: 2px solid red;
+  height: 300px;
+  position: absolute;
+  margin-top: 50px
 }
 
 .articles {
@@ -172,4 +179,13 @@ a.highlight {
 .large-profile {
   height: 200px;
   border-radius: 100px
+}
+
+#logged-in-users {
+  display: flex
+}
+
+#logged-in-users ul {
+  flex-direction: column;
+  border: 1px solid red
 }
