@@ -3,7 +3,6 @@
 body {
   background-color: #0f121f;
   background-image: url(/static/stars.png);
-  background-repeat-y: no-repeat;
   color: #fff;
 }
 
@@ -25,6 +24,11 @@ a:hover,
 a:visited {
   color: #fff;
   text-decoration: none;
+}
+
+.modal-content {
+  width: 60vw;
+  height: 60vh
 }
 
 .wrapper {
@@ -69,8 +73,22 @@ ul {
 .users-on-off {
   border: 2px solid red;
   height: 300px;
+  width: 30% !important;
   position: absolute;
   margin-top: 50px
+}
+
+.user-list {
+  position: relative !important;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 498px;
+  overflow: auto;
+  background: green !important;
+  margin: 0;
+  padding: 20px;
+  border-left: 1px solid #DDD;
 }
 
 .articles {
@@ -112,6 +130,16 @@ ul {
   text-align: center;
   margin: 20px auto;
   font-size: 2em
+}
+
+.logged-in-cont {
+  display: flex;
+  flex-direction: row
+}
+
+.logged-in-cont img {
+  height: 30px;
+  border-radius: 50px
 }
 
 .article-detail .article h3 {
@@ -181,11 +209,17 @@ a.highlight {
   border-radius: 100px
 }
 
-#logged-in-users {
+.logged-in-users-cont {
   display: flex
 }
 
-#logged-in-users ul {
+.users-on-off {
+  display: flex;
   flex-direction: column;
-  border: 1px solid red
+  width: 120px
+}
+
+#logged-in-users {
+  border: 2px solid green;
+  position: relative;
 }

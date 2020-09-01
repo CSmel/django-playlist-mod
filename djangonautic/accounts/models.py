@@ -44,6 +44,5 @@ def get_all_offline_users():
     # get all of the users
     all_usersb = get_all_users()
     all_users_logged_2 = get_all_logged_in_users()
-    all_users2 = all_usersb.exclude(user__in=all_users_logged_2)
-    all_users2
+    all_users2 = User.objects.exclude(id__in=all_users_logged_2)
     return all_users2
