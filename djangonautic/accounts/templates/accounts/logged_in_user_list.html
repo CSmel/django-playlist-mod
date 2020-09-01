@@ -1,0 +1,100 @@
+{% block me %}
+<h3>Logged in</h3>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+<div id="logged-in-users">
+  {% if users %}
+
+  <ul class="user-list">
+    {% for u in users %}
+    <li>
+
+
+      <!-- Create book button -->
+      <div class="logged-in-cont">
+
+        <img src="{{u.profile.avatar.url}}" /><button id="create-book{{forloop.counter}}" class="bs-modal btn btn-primary" type="button" name="button" data-form-url="{% url 'dialogs_detail' u %}">
+          {{u}} {{forloop.counter}}<i class="far fa-hand-spock"></i></button>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <h3>Offline</h3>
+  {% if users %}
+  {% for x in all_users2 %}
+  <ul>
+    <li style="color: grey">
+
+
+      <!-- Create book button -->
+      <div class="logged-in-cont">
+        <img src="{{x.profile.avatar.url}}" />
+      <button id="create-book{{forloop.counter}}" class="bs-modal btn btn-primary" type="button" name="button" data-form-url="{% url 'dialogs_detail' x %}">
+        {{x}}<i class="fas fa-bed"></i></button>
+        </div>
+    </li>
+  </ul>
+
+  {% endfor %}
+  {% endif %}
+
+
+</div>
+{% endblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  var csrftoken = getCookie('csrftoken');
+
+  function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+
+  /
+  $.ajax({
+    url: window.location.pathname,
+    type: 'GET',
+    data: {
+      action: 'online_offline'
+    },
+    success: function(data) {
+      // grab the inner html of the returned div
+      // so you don't nest a new div#refresh-this-div on every call
+      var html = $(data).find('#logged-in-users').html();
+      $('#logged-in-users').html(html);
+    },
+
+
+    error: function(data) {
+      console.log("error")
+      console.log(data)
+    }
+  })
+</script>
