@@ -3,7 +3,6 @@
 body {
   background-color: #0f121f;
   background-image: url(/static/stars.png);
-  background-repeat-y: no-repeat;
   color: #fff;
 }
 
@@ -27,6 +26,11 @@ a:visited {
   text-decoration: none;
 }
 
+.modal-content {
+  width: 60vw;
+  height: 60vh
+}
+
 .wrapper {
   max-width: 960px;
   margin: 0 auto;
@@ -48,7 +52,7 @@ nav {
   justify-self: end;
 }
 
-nav li {
+li {
   display: inline-block;
   list-style-type: none;
   margin-left: 20px;
@@ -64,6 +68,27 @@ nav button {
 
 ul {
   list-style-type: none !important
+}
+
+.users-on-off {
+  border: 2px solid red;
+  height: 300px;
+  width: 30% !important;
+  position: absolute;
+  margin-top: 50px
+}
+
+.user-list {
+  position: relative !important;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 498px;
+  overflow: auto;
+  background: green !important;
+  margin: 0;
+  padding: 20px;
+  border-left: 1px solid #DDD;
 }
 
 .articles {
@@ -105,6 +130,16 @@ ul {
   text-align: center;
   margin: 20px auto;
   font-size: 2em
+}
+
+.logged-in-cont {
+  display: flex;
+  flex-direction: row
+}
+
+.logged-in-cont img {
+  height: 30px;
+  border-radius: 50px
 }
 
 .article-detail .article h3 {
@@ -172,4 +207,19 @@ a.highlight {
 .large-profile {
   height: 200px;
   border-radius: 100px
+}
+
+.logged-in-users-cont {
+  display: flex
+}
+
+.users-on-off {
+  display: flex;
+  flex-direction: column;
+  width: 120px
+}
+
+#logged-in-users {
+  border: 2px solid green;
+  position: relative;
 }

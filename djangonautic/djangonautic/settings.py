@@ -15,7 +15,8 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_AGE = 60
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -40,6 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'articles',
     'accounts',
+    'django_private_chat',
+    'accounts.templatetags',
+    'background_task',
+    'bootstrap_modal_forms'
+
+
 ]
 
 MIDDLEWARE = [
@@ -50,7 +57,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
+
+CHAT_WS_SERVER_HOST = 'localhost'
+CHAT_WS_SERVER_PORT = 5002
+CHAT_WS_SERVER_PROTOCOL = 'ws'
+
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
 ROOT_URLCONF = 'djangonautic.urls'
 

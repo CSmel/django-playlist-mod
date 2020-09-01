@@ -19,22 +19,22 @@
       <div id="test">
 
         {% if user.profile.avatar.url|length > 0 %}
-        <img class="large-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">    {% else %}
+        <img class="large-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image"> {% else %}
         <img class="large-profile" src="{% static 'defaultVadar.png' %}" alt="larg profile image">
         {% endif %}
 
         <button id="edit-avatar">Edit</button>
-<ul>
-  <li>
-    <button id="upload-photo" style="display: none" class="avatar-sub-button">Upload a photo...</button>
-    </li>
-    <li>
-      <button id="remove-photo"style="display: none" class="avatar-sub-button">Remove photo</button>
-      </li>
-  </ul>
+        <ul>
+          <li>
+            <button id="upload-photo" style="display: none" class="avatar-sub-button">Upload a photo...</button>
+          </li>
+          <li>
+            <button id="remove-photo" style="display: none" class="avatar-sub-button">Remove photo</button>
+          </li>
+        </ul>
       </div>
       {{avatar.as_p}}
-      <input name="form-1-submit" type="submit" value="edit" style="visibility: hidden"/>
+      <input name="form-1-submit" type="submit" value="edit" style="visibility: hidden" />
 
     </form>
     <div class="card">
@@ -55,112 +55,110 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script type="text/javascript">
-
-  $('#edit-avatar').on('click', function(e){
+  $('#edit-avatar').on('click', function(e) {
     e.preventDefault()
     $('.avatar-sub-button').toggle(); // Shows
 
   })
 
-     $('#upload-photo').click(function(e){
-       e.preventDefault();
-       $("#id_profile-0-avatar").click();
+  $('#upload-photo').click(function(e) {
+    e.preventDefault();
+    $("#id_profile-0-avatar").click();
 
-     })
-     $('#remove-photo').click(function(e){
-       $('#profile-0-avatar-clear_id').is(":checked")
-       e.preventDefault();
-       $("#profile-0-avatar-clear_id").click();
+  })
+  $('#remove-photo').click(function(e) {
+    $('#profile-0-avatar-clear_id').is(":checked")
+    e.preventDefault();
+    $("#profile-0-avatar-clear_id").click();
 
-     })
-$('#id_profile-0-avatar').on('change', function(){
-var $form = $(this).closest('form');
-  $form.find('input[name=form-1-submit]').click();
-});
+  })
+  $('#id_profile-0-avatar').on('change', function() {
+    var $form = $(this).closest('form');
+    $form.find('input[name=form-1-submit]').click();
+  });
 
-$('#profile-0-avatar-clear_id').on('change', function(){
-alert('hi')
-var $form = $(this).closest('form');
-  $form.find('input[name=form-1-submit]').click();
-});
-
-
-
- var p = document.querySelectorAll('p');
- p[1].style.visibility = "hidden";
- p[2].style.visibility = "hidden";
- var input = document.querySelectorAll('input');
- input[13].style.display = "none";
+  $('#profile-0-avatar-clear_id').on('change', function() {
+    alert('hi')
+    var $form = $(this).closest('form');
+    $form.find('input[name=form-1-submit]').click();
+  });
 
 
 
- function getCookie(name) {
-     var cookieValue = null;
-     if (document.cookie && document.cookie !== '') {
-         var cookies = document.cookie.split(';');
-         for (var i = 0; i < cookies.length; i++) {
-             var cookie = jQuery.trim(cookies[i]);
-             // Does this cookie string begin with the name we want?
-             if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                 break;
-             }
-         }
-     }
-     return cookieValue;
- }
- var csrftoken = getCookie('csrftoken');
+  var p = document.querySelectorAll('p');
+  p[1].style.visibility = "hidden";
+  p[2].style.visibility = "hidden";
+  var input = document.querySelectorAll('input');
+  input[13].style.display = "none";
 
- function csrfSafeMethod(method) {
-     // these HTTP methods do not require CSRF protection
-     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
- }
- $.ajaxSetup({
-     beforeSend: function(xhr, settings) {
-         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-             xhr.setRequestHeader("X-CSRFToken", csrftoken);
-         }
-     }
- });
+
+
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  var csrftoken = getCookie('csrftoken');
+
+  function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
 
 
 
   // form upload
 
-    $('#id_ajax_upload_form').submit(function(e) {
-      e.preventDefault()
-      $form = $(this)
-      var formData = new FormData(this);
-      //alert(formData)
-      $.ajax({
-        url: window.location.pathname,
-        type: 'POST',
-        data: formData,
-        action:'ajax',
-        //csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-        cache: false,
-        success: function(response) {
+  $('#id_ajax_upload_form').submit(function(e) {
+    e.preventDefault()
+    $form = $(this)
+    var formData = new FormData(this);
+    //alert(formData)
+    $.ajax({
+      url: window.location.pathname,
+      type: 'POST',
+      data: formData,
+      action: 'ajax',
+      //csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+      cache: false,
+      success: function(response) {
 
-          $('.error').remove();
-             console.log(response)
-             if(response.error){
-                 $.each(response.errors, function(name, error){
-                     error = '<small class="text-muted error">' + error + '</small>'
-                     $form.find('[name=' + name + ']').after(error);
-                 })
-             }
-             else{
-               alert(response.message)
-                  window.location = ""
-             }
-        },
+        $('.error').remove();
+        console.log(response)
+        if (response.error) {
+          $.each(response.errors, function(name, error) {
+            error = '<small class="text-muted error">' + error + '</small>'
+            $form.find('[name=' + name + ']').after(error);
+          })
+        } else {
+          alert(response.message)
+          window.location = ""
+        }
+      },
 
-        cache: false,
-        contentType: false,
-        processData: false
-      });
-
+      cache: false,
+      contentType: false,
+      processData: false
     });
+
+  });
 
 
 
