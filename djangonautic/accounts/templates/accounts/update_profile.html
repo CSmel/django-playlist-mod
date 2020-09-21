@@ -15,7 +15,7 @@
 
 
     <form action="." id="id_ajax_upload_form" method="POST" class="padding" enctype="multipart/form-data" novalidate="">
-      {% csrf_token %} {{ formset.management_form }}
+      
       <div id="test">
 
         {% if user.profile.avatar.url|length > 0 %}
