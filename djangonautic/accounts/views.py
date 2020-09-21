@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth import logout as auth_logout
 from .models import Profile
 #from .models import UserProfile
 from .forms import UserForm, UpdateAvatar
@@ -29,7 +30,9 @@ def signup_view(request):
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
+
         if form.is_valid():
+
         #log in the User
             user = form.get_user()
             login(request, user)
@@ -39,11 +42,12 @@ def login_view(request):
                 return redirect('articles:list')
     else:
         form = AuthenticationForm()
+
     return render(request, 'accounts/login.html',  {'form': form})
 
 def logout_view(request):
     if request.method == 'POST':
-        logout(request)
+        auth_logout(request)
         return redirect('articles:list')
 
 #def update_profile_view(request):
@@ -59,10 +63,12 @@ def logout_view(request):
 #        form = UserCreationForm
 #    return render(request, 'accounts/update_profile.html', {'form': form})
 
-def view_profile_view(request):
-
+def view_profile_view(request, pk):
+    user = User.objects.get(pk=pk)
+    if request.user.is_authenticated and request.user.id == user.id:
         if request.method == 'POST':
             form = UserCreationForm(request.POST)
+            max_age = request.session.get_expiry_date()
             if form.is_valid():
                 user = form.save()
                 # log the user ifmain
@@ -70,9 +76,9 @@ def view_profile_view(request):
                 return redirect('articles:list')
         else:
 
-
+            max_age = request.session.get_expiry_date()
             form = UserCreationForm
-        return render(request, 'accounts/view_profile.html', {'form': form})
+        return render(request, 'accounts/view_profile.html', {'form': form, 'max_age':max_age})
 @login_required
 def update_profile_view(request, pk):
     user = User.objects.get(pk=pk)

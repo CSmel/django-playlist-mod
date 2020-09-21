@@ -4,8 +4,10 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.sessions.models import Session
+from django.contrib.sessions.backends.db import SessionStore
 from django.utils import timezone
-
+from datetime import datetime
+import time
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     location = models.CharField(max_length=30, blank=True)
@@ -46,3 +48,8 @@ def get_all_offline_users():
     all_users_logged_2 = get_all_logged_in_users()
     all_users2 = User.objects.exclude(id__in=all_users_logged_2)
     return all_users2
+
+# def get_test():
+#
+#     for s in User.objects.all()
+#         return s.last_login
