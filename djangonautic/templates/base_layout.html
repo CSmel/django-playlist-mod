@@ -19,6 +19,7 @@
 </head>
 
 <body>
+
   <div class="modal fade" tabindex="-1" role="dialog" id="modal">
     <div class="modal-dialog" role="document">
       <div class="modal-content"></div>
@@ -135,11 +136,11 @@ $(this).modalForm({
 formURL: $(this).data('form-url')
 });
 });
+$(window).on('load',function(){
 
+  $("#create-book2").click()
+    });
 
-$('#modal').on('show.bs.modal', function () {
-
-$(this).find("#opponent_user").attr("src", childImg);
 
 });
 
