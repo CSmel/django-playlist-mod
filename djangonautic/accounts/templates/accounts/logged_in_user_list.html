@@ -1,13 +1,6 @@
 {% load static %}
 {% block me %}
 <div>
-
-
-
-<div id="txtDate">
-
-</div>
-
 <div id="logged-in-users">
   <h3>Contacts</h3>
   {% if users %}
@@ -15,6 +8,7 @@
     {% for u in users %}
     <li class="in">
       <div class="logged-in-cont">
+
         <button id="create-book{{forloop.counter}}" class="bs-modal btn btn-primary" type="button" name="button" data-form-url="{% url 'dialogs_detail' u %}">
           <img src="{{u.profile.avatar.url}}" /><i class="fas fa-circle"></i>{{u}}</button>
         <span style="visibility: hidden" id="time-{{forloop.counter}}" value="{{u.last_login}}">{{u.last_login|date:"m/d/Y H:i:s" }}</span>
@@ -53,6 +47,7 @@
   </ul>
 
   {% endif %}
+
 </div>
 
 {% endblock %}
@@ -64,6 +59,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js" integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollmonitor/1.2.0/scrollMonitor.js" integrity="sha512-v86kDQswhXScAMjk6us0nNLSjzER5GLLwPz9BGK24YC8WcNZxU9+ojW32e6sRSkdZlJrvsKOZzFwysAXwHmIPw==" crossorigin="anonymous"></script>
 <script type="text/javascript">
+
+
+
+
   function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -169,10 +168,9 @@
 
 
         $('#modal').on('show.bs.modal', function() {
-
           $(this).find("#opponent_user").attr("src", childImg);
-
         });
+
       },
 
 
@@ -182,5 +180,5 @@
       }
     })
 
-  }, 5000)
+  }, 15000)
 </script>

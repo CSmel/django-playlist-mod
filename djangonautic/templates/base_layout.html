@@ -27,7 +27,6 @@
   </div>
   <header class="wrapper">
 
-
   {% block chatModalMid %}
 
 
@@ -81,6 +80,7 @@
 {% block customTag %}
   {% load custom_tags %}
   {% render_logged_in_user_list %}
+
 {% endblock %}
 {% endif %}
 <script type="text/javascript">
@@ -136,19 +136,20 @@ $(this).modalForm({
 formURL: $(this).data('form-url')
 });
 });
-$(window).on('load',function(){
+// $(window).on('load',function(){
+//
+//   $("#create-book2").click()
+//     });
+//
 
-  $("#create-book2").click()
-    });
-
-
-});
 
 };
 $(document).ready(function(){
     initialise();
 });
-
+$(".modal").on("hidden.bs.modal", function(){
+$(".modal-content").html("");
+});
 </script>
 
 
