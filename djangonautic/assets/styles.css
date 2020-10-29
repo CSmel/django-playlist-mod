@@ -26,7 +26,9 @@ a:visited {
   text-decoration: none;
 }
 
-/* .modal-content {}
+.modal-content {
+  height: 800px
+}
 
 .modal.in .modal-dialog {
   position: fixed;
@@ -34,7 +36,8 @@ a:visited {
   right: 0px;
   margin: 0px;
   width: 500px
-} */
+}
+
 .wrapper {
   max-width: 960px;
   margin: 0 auto;
@@ -155,12 +158,51 @@ ul {
   border-radius: 50px
 }
 
+/*animation for pulsing icon */
+.fa-beat {
+  animation: fa-beat 5s ease infinite;
+}
+
+@keyframes fa-beat {
+  0% {
+    transform: scale(1);
+  }
+
+  5% {
+    transform: scale(1.25);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(1.25);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  55% {
+    transform: scale(1.25);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+}
+
 .close {
   font-size: 30px !important;
   margin-left: auto;
 }
 
-/* .modal-header {
+.modal-header {
   display: flex;
   flex-direction: row;
   padding-top: 0 !important;
@@ -169,19 +211,35 @@ ul {
 .modal-header>p {
   padding-top: 0;
   margin-top: 0
-} */
+}
+
 .msg-unread>.pull-right {
   padding: 15px;
   background-color: #0084FF;
   border-radius: 30px
 }
 
+.messages-container {
+  margin-bottom: 0
+}
+
 .messages {
-  width: 450px;
+  width: 390px;
+  margin-top: 0;
+  padding-bottom: 10px;
+}
+
+#iframeWindow {
+  border: 2px solid red !important
 }
 
 .add-message {
-  width: 50%
+  z-index: 1;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 .article-detail .article h3 {

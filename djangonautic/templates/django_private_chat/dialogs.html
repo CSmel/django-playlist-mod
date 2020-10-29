@@ -1,117 +1,110 @@
-{# This template is here just to demonstrate how to customize the default one. #}
-{# It has none to very few changes #}
-{% extends "base.html" %}
+
+{% extends "base_layout.html" %}
 {% load static %}
 {% load i18n %}
-{% block css %}
-{% endblock css %}
 
+{% block css %}
+    {{ block.super }}
+    <link href="{% static "django_private_chat/css/django_private_chat.css" %}" rel="stylesheet" type="text/css" media="all">
+
+{% endblock css %}
+{% block chatModalMid %}
+{% endblock %}
 {% block content %}
-  <div>
-<div class="modal-header">
-   <h5 class="modal-title">Create new Book</h5>
-   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
-   </button>
- </div>
- <div class="modal-body">
-    <input id="owner_username" type="hidden" value="{{ request.user.username }}">
+
+ <div style="background-color: white"class="modal-body">
+    <input id="owner_username"  type="hidden" value="{{ request.user.username }}">
     <div class="container">
-        <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{% trans "Chat list" %} hi</h3>
+
+        <div class="col-md-9">
+            <div style="width: 30px" class="row">
+                <div  class="col-md-3 col-md-offset-9">
+                    <span  class="pull-left" hidden id="typing-text">
+                        <strong >{{ opponent_username }} {% trans "is typing..." %}</strong>
+                    </span>
                 </div>
-                <div class="panel-body">
-                    <div class="user-list-div">
-                        <ul style="list-style-type: none;">
-                            {% for dialog in object_list %}
-                            hi
-                                <li>
-                                    {% if dialog.owner == request.user %}
-                                        {% with dialog.opponent.username as username %}
-                                            <a href="{% url 'dialogs_detail' username %}" id="user-{{ username }}"
-                                               class="btn btn-danger">{% trans "Chat with" %} {{ username }}</a>
-                                        {% endwith %}
-                                    {% else %}
-                                        {% with dialog.owner.username as username %}
-                                            <a href="{% url 'dialogs_detail' username %}" id="user-{{ username }}"
-                                               class="btn btn-danger">{% trans "Chat with" %} {{ username }}</a>
-                                        {% endwith %}
-                                    {% endif %}
-                                </li>
-                            {% endfor %}
-                        </ul>
+
+                <p class="text-success" id="online-status" style="display: none">{% trans "Online" %}</p>
+                <p class="text-danger" id="offline-status" style="display: none">{% trans "Offline" %}</p>
+
+                <div class="messages-container">
+                    <div id="messages" class="messages">
+                        {% for msg in active_dialog.messages.all %}
+                            <div class="row {% if msg.read %}msg-read{% else %}msg-unread{% endif %}"
+                                 data-id="{{ msg.id }}">
+                                <p class="{% if msg.sender == request.user %}pull-right{% else %}pull-left{% endif %}">
+                                    <span class="username">{{ msg.sender.username }}:</span>
+                                    {{ msg.text }}
+
+                                    <span class="timestamp">&ndash; <span
+                                            data-livestamp="{{ msg.get_formatted_create_datetime }}">{{ msg.get_formatted_create_datetime }}</span></span>
+                                </p>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-9">
-            <div class="well well-lg">
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-9">
-                    <span class="pull-right" hidden id="typing-text">
-                        <strong>{{ opponent_username }} {% trans "is typing..." %}</strong>
-                    </span>
-                    </div>
-                    <p>
-                        {{ opponent_username }}
-                    </p>
-                    <p class="text-success" id="online-status" style="display: none">{% trans "Online" %}</p>
-                    <p class="text-danger" id="offline-status" style="display: none">{% trans "Offline" %}</p>
 
-                    <div class="messages-container">
-                        <div id="messages" class="messages">
-                            {% for msg in active_dialog.messages.all %}
-                                <div class="row  {% if msg.read %}msg-read{% else %}msg-unread{% endif %} {% if msg.sender != request.user %}opponent{% endif %}"
-                                     data-id="{{ msg.id }}">
-                                    <p class="{% if msg.sender == request.user %}pull-left{% else %}pull-right{% endif %}">
-                                        <span class="username">{{ msg.sender.username }}:</span>
-                                        {{ msg.text }}
-                                        <span class="timestamp">&ndash; <span
-                                                data-livestamp="{{ msg.get_formatted_create_datetime }}">{{ msg.get_formatted_create_datetime }}</span></span>
-                                    </p>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
+            <div class="row">
+                <div class="add-message">
 
-                <div class="row">
-                    <div class="add-message">
-                        <div class="form-group">
+                    <div class="form-group">
+                      <span id="newMessageAlert"><i class="fas fa-angle-double-down fa-beat"></i></span>
                         <textarea id="chat-message" class="form-control message"
                                   placeholder="{% trans 'Write a message' %}"></textarea>
-                        </div>
-
-                        <div class="form-group clearfix">
-                            <input id="btn-send-message" type="submit" class="btn btn-primary pull-right send-message"
-                                   style="margin-left: 10px;" value="{% trans 'Send' %}"/>
-                        </div>
                     </div>
+
+                    <!-- <div class="form-group clearfix">
+                        <input id="btn-send-message" type="submit" class="btn btn-primary pull-left send-message"
+                               style="margin-left: 10px;" value="{% trans 'Send' %}"/>
+                    </div> -->
                 </div>
             </div>
         </div>
-    </div>
-      </div>
-
-      <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    <button type="button" class="submit-btn btn btn-primary">Create</button>
-  </div>
-
 
     </div>
+    </div>
+
 {% endblock %}
-
+{% block customTag %}
+{% endblock %}
+{% block header %}
+{% endblock %}
 {% block extra_js %}
-<script src="https://cdn.jsdelivr.net/npm/scrollmonitor@1.2.4/scrollMonitor.min.js"></script>
+    {{ block.super }}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+    <!-- You can alternatively load the minified version -->
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollmonitor/1.2.0/scrollMonitor.js"
+            integrity="sha256-BseZlDlA+yL4qu+Voi82iFa5aaifralQEXIjOjaXgeo=" crossorigin="anonymous"></script>
+    <script>
+
+      $('#newMessageAlert').hide()
+      var $details = $(".messages"),
+          $addMessage = $(".add-message"),
+          addMessagePos = $addMessage.position().top
+
+          detailsPos = $details.position().top + addMessagePos - 571; //need to create a variable
+          $addMessage.css("position", "fixed").css("bottom",0);
+      // $(window).on("scroll", function() {
+      //
+      //     if ($(window).scrollTop() > detailsPos)
+      //         $addMessage.css("position", "static").css("bottom",10);
+      //     else
+      //         $addMessage.css("position", "fixed").css("bottom",0);
+      // });
+
+// $("#messages").animate({ scrollTop: $("#messages").height() }, "slow");
+
         var base_ws_server_path = "{{ ws_server_path }}";
         $(document).ready(function () {
             var websocket = null;
             var monitor = null;
 
             function initReadMessageHandler(containerMonitor, elem) {
+              console.log('loaded')
                 var id = $(elem).data('id');
                 var elementWatcher = containerMonitor.create(elem);
                 elementWatcher.enterViewport(function () {
@@ -128,11 +121,13 @@
             }
 
             function initScrollMonitor() {
+
                 var containerElement = $("#messages");
                 var containerMonitor = scrollMonitor.createContainer(containerElement);
                 $('.msg-unread').each(function (i, elem) {
                     if ($(elem).hasClass('opponent')){
                         initReadMessageHandler(containerMonitor, elem);
+
                     }
 
                 });
@@ -154,8 +149,10 @@
             }
 
             function addNewMessage(packet) {
+
+              $("#senderPacket").val(packet['sender_name'])
                 var msg_class = "";
-                if (packet['sender_name'] == $("#owner_username").val()) {
+                if (packet['sender_name'] != $("#owner_username").val()) {
                     msg_class = "pull-left";
                 } else {
                     msg_class = "pull-right";
@@ -170,11 +167,18 @@
                         '</div>');
                 $('#messages').append(msgElem);
                 scrollToLastMessage()
+                newMessageAlert()
             }
-
+            function newMessageAlert(){
+$('#newMessageAlert').show()
+var audio = new Audio('{% static "sounds/new-message.mp3" %}')
+  audio.play()
+            }
             function scrollToLastMessage() {
+              console.log("scrollToLastMessage Loaded")
                 var $msgs = $('#messages');
-                $msgs.animate({"scrollTop": $msgs.prop('scrollHeight')})
+                $msgs.animate({"scrollBottom": $msgs.prop('scrollHeight')})
+
             }
 
             function generateMessage(context) {
@@ -199,19 +203,21 @@
             function gone_offline() {
                 $("#online-status").hide();
                 $("#offline-status").show();
+
             }
 
-            function flash_user_button(username) {
-                var btn = $("#user-" + username);
+            function flash_user_button() {
+                var btn = $("#flash");
                 btn.fadeTo(700, 0.1, function () {
                     $(this).fadeTo(800, 1.0);
                 });
             }
 
             function setupChatWebSocket() {
+
                 var opponent_username = getOpponnentUsername();
                 websocket = new WebSocket(base_ws_server_path + '{{ request.session.session_key }}/' + opponent_username);
-
+				console.log(websocket)
                 websocket.onopen = function (event) {
                     var opponent_username = getOpponnentUsername();
 
@@ -232,6 +238,7 @@
                     console.log('checking online opponents with:', onOnlineCheckPacket);
                     websocket.send(onOnlineCheckPacket);
                     monitor = initScrollMonitor();
+                    console.log("Monitor", monitor)
                 };
 
 
@@ -246,6 +253,7 @@
                     console.log('unloading, sending:', onClosePacket);
                     websocket.send(onClosePacket);
                     websocket.close();
+
                 };
 
 
@@ -283,20 +291,28 @@
                             setUserOnlineOffline(packet.username, false);
                             break;
                         case "new-message":
-                            var username = packet['sender_name'];
-                           if (username == opponent_username || username == $("#owner_username").val()){
+                        var senderName = packet['sender_name']
+                         if($('body').hasClass('modal-open')) {
+
+
+                           return true
+                         }
+                         else{
+                          $("#"+senderName+"").click()
+                        $("#senderPacket").val(senderName)}
+
+
+                            if (packet['sender_name'] == opponent_username || packet['sender_name'] == $("#owner_username").val()) {
                                 addNewMessage(packet);
-                                if (username == opponent_username) {
+
+                                if (packet['sender_name'] == opponent_username) {
                                     initReadMessageHandler(monitor, $("div[data-id='" + packet['message_id'] + "']"));
+
                                 }
+
                             } else {
-                                if ($("#user-"+username).length == 0){
-                                    var new_button = $(''+
-                                        '<a href="/'+ username + '"' +
-                                        'id="user-'+username+'" class="btn btn-danger">{% trans "Chat with" %} '+username+'</a>');
-                                    $("#user-list-div").find("ul").append()
-                                }
-                                flash_user_button(username);
+                                flash_user_button();
+
 
                             }
                             break;
@@ -317,6 +333,7 @@
                             break;
 
                         default:
+							setUserOnlineOffline(packet.username, true);
                             console.log('error: ', event)
                     }
                 }
@@ -330,6 +347,8 @@
                     username: opponent_username,
                     message: message
                 });
+
+
                 websocket.send(newMessagePacket)
             }
 
@@ -348,7 +367,9 @@
                     });
                     websocket.send(packet);
                 }
+
             });
+
 
             $('#btn-send-message').click(function (e) {
                 var $chatInput = $('#chat-message');
@@ -358,9 +379,12 @@
                 $chatInput.val('')
             });
 
-            setupChatWebSocket();
+          setupChatWebSocket();
+
+
             scrollToLastMessage();
         });
+
 
     </script>
 {% endblock %}

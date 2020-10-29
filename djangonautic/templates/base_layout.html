@@ -3,18 +3,20 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-
+{% block header %}
   <title>Hompage</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+{% endblock %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+
   <link rel="stylesheet" href="{% static '\fontawesome\fontawesome-free-5.14.0-web\css\all.css' %}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-
 
 </head>
 
@@ -28,130 +30,138 @@
   <header class="wrapper">
 
 
-  {% block chatModalMid %}
+    {% block chatModalMid %}
 
 
-<h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}"/></a></h1>
+    <h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" /></a></h1>
 
-{% if user.is_authenticated %}
+    {% if user.is_authenticated %}
 
-<nav>
-
-
-
-<ul>
-   <a href="{% url 'accounts:viewProfile' pk=user.id %}"<h2>Hey <div id="current-user">{{user.get_username}}</div> </h2>
-
-   </div>
-
-    {% if user.profile.avatar.url|length > 0 %}
-    <img class="small-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">    {% else %}
-    <img class="small-profile" src="{% static 'defaultVadar.png' %}" alt="larg profile image">
-    {% endif %}
+    <nav>
 
 
-<li>
-<form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
-{% csrf_token %}
-<button type="submit">Logout</button></form></li>
-<li><a href="{% url 'articles:create' %}" class="highlight">New Article</a></li>
+
+      <ul>
+        <a href="{% url 'accounts:viewProfile' pk=user.id %}" <h2>Hey <div id="current-user">{{user.get_username}}</div>
+          </h2>
+
+          </div>
+
+          {% if user.profile.avatar.url|length > 0 %}
+          <img class="small-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image"> {% else %}
+          <img class="small-profile" src="{% static 'defaultVadar.png' %}" alt="larg profile image">
+          {% endif %}
 
 
-{% else %}<nav>
-  <ul>
-    <li><a href="{% url 'accounts:login' %}">Login</a></li>
-    <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
-    {% endif %}
-  </ul>
-</nav>
+          <li>
+            <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+          <li><a href="{% url 'articles:create' %}" class="highlight">New Article</a></li>
 
-</ul></nav>
+
+          {% else %}<nav>
+            <ul>
+              <li><a href="{% url 'accounts:login' %}">Login</a></li>
+              <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+              {% endif %}
+            </ul>
+          </nav>
+
+      </ul>
+    </nav>
   </header>
-<div class="wrapper">
+  <div class="wrapper">
+      
+    <button id="flash">
+      FLASH
+    </button><button id="loadData">
+      LOAD
+    </button>
+    <div id="siteloader">
 
-{% endblock %}
-{% block content %}
-{% endblock %}
-{%block js%}
-{%endblock%}
+    </div>
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+    {%block js%}
+    {%endblock%}
 
-</div>
-{% if user.is_authenticated %}
-{% block extra_js %}{% endblock extra_js %}
-{% block customTag %}
+  </div>
+  {% if user.is_authenticated %}
+  {% block extra_js %}{% endblock extra_js %}
+  {% block customTag %}
   {% load custom_tags %}
   {% render_logged_in_user_list %}
-{% endblock %}
-{% endif %}
-<script type="text/javascript">
+  {% endblock %}
+  {% endif %}
 
+  <script type="text/javascript">
+    initialise = function() {
 
+      $('.online-duration').each(function(index, value) {
+        // less that 24 hours.
+        var $start = $(`#time-${index+1}`).text()
+        // var $createEnd = moment()
+        // var $end = moment($createEnd).format("MM/DD/YYYY hh:mm:ss")
+        // var $duration = moment.utc(moment($end).diff(moment($start))).format("HH:mm")
+        let $minutes = moment().diff(moment($start), 'minutes');
+        let $days = moment().diff(moment($start), 'days');
+        let $hours = moment().diff(moment($start), 'hours');
 
- initialise = function() {
+        if ($hours === 0) {
+          $(`#endtime-${index+1}`).text($minutes + " minutes"); // curent time
+        } else if ($hours >= 0 && $days <= 1) {
+          $(`#endtime-${index+1}`).text($hours + " Hours"); // curent time
+        } else if ($days >= 2) {
+          $(`#endtime-${index+1}`).text($days + " Days")
+        }
 
-   $('.online-duration').each(function(index, value) {
-     // less that 24 hours.
-     var $start = $(`#time-${index+1}`).text()
-     // var $createEnd = moment()
-     // var $end = moment($createEnd).format("MM/DD/YYYY hh:mm:ss")
-     // var $duration = moment.utc(moment($end).diff(moment($start))).format("HH:mm")
-     let $minutes = moment().diff(moment($start), 'minutes');
-     let $days = moment().diff(moment($start), 'days');
-     let $hours = moment().diff(moment($start), 'hours');
-
-     if($hours === 0){
-       $(`#endtime-${index+1}`).text($minutes + " minutes"); // curent time
-     }
-     else if($hours >= 0 && $days <= 1 ){
-       $(`#endtime-${index+1}`).text($hours + " Hours"); // curent time
-     }
-      else if ($days >= 2){
-         $(`#endtime-${index+1}`).text($days +" Days")
-      }
-
-   });
+      });
 
 
 
 
-var childImg;
-var cu = $('#current-user').text()
-$(".in").each(function () {
-if($(this).is(":contains('"+cu+"')")){
-$(this).remove()
-
-}
-});
-$(".logged-in-cont").each(function () {
-$(this).on("click", function(){
-childImg = $(this).find('img').attr("src");
-$("#opponent_user").attr("src", childImg)
-console.log('hi',$(this))
-});
-});
 
 
-$(".bs-modal").each(function () {
-$(this).modalForm({
-formURL: $(this).data('form-url')
-});
-});
-$(window).on('load',function(){
+      var cu = $('#current-user').text()
+      $(".in").each(function() {
+        if ($(this).is(":contains('" + cu + "')")) {
+          $(this).remove()
 
-  $("#create-book2").click()
+        }
+      });
+      // $(".logged-in-cont").each(function () {
+      // $(this).on("click", function(){
+      // childImg = $(this).find('img').attr("src"); // on user's button and select i
+      // $("#opponent_user").attr("src", childImg)
+      // console.log('hi',childImg)
+      // });
+      // });
+
+
+      $(".bs-modal").each(function() {
+        $(this).modalForm({
+          formURL: $(this).data('form-url')
+        });
+      });
+
+    };
+    $("#modal").on("hidden.bs.modal", function() {
+      $(".modal-content").html("");
     });
-
-
-});
-
-};
-$(document).ready(function(){
-    initialise();
-});
-
-</script>
+    $(document).ready(function() {
+      initialise();
+    });
+    $('#loadData').on('click', function() {
+      $('#siteloader').load('http://127.0.0.1:8000/chat/dialogs/{{user.get_username}}');
+    });
+  </script>
 
 
 
 </body>
+
 </html>

@@ -12,7 +12,10 @@ from .forms import UserForm, UpdateAvatar
 from django.forms.models import inlineformset_factory
 from django.core.exceptions import PermissionDenied
 
+def messenger_view(request):
 
+
+    return render(request, 'accounts/messenger.html')
 # Create your views here.
 def signup_view(request):
     if request.method == 'POST':
