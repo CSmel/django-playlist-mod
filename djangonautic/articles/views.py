@@ -111,13 +111,12 @@ def postpreference(request, postid, userpreference):
 
                         eachpost.save()
 
-                        
+
 
 
 
                         context= {'eachpost': eachpost,
-                          'postid': postid,
-                          'string': string}
+                          'postid': postid}
                         return HttpResponse(eachpost.like)
                         return render (request, 'articles/article_detail_ajax.html', context)
 
