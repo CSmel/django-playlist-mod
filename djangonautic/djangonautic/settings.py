@@ -39,15 +39,30 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     'django.contrib.sites',
+     'timesheet',
     'articles',
     'accounts',
+    'groups',
+    'timecards',
+    'home',
+    'django.contrib.humanize',  # Required for elapsed time formatting
+    'markdown_deux',  # This is us!
+    'bootstrapform', # Required for nicer formatting of forms with the default templates
     'django_private_chat',
     'accounts.templatetags',
     'background_task',
-    'bootstrap_modal_forms'
+    'bootstrap_modal_forms',
+    'helpdesk',
 
 
 ]
+EMAIL_HOST = 'mail.creativesakas.com'
+EMAIL_HOST_USER = 'webdeveloper@creativesakas.com'
+EMAIL_HOST_PASSWORD = 'Brunasantos@1987'
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,6 +74,8 @@ MIDDLEWARE = [
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]
+
+SITE_ID = 1
 
 CHAT_WS_SERVER_HOST = 'localhost'
 CHAT_WS_SERVER_PORT = 5002

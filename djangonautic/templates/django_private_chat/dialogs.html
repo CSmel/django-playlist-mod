@@ -15,8 +15,7 @@
  <div style="background-color: white"class="modal-body">
     <input id="owner_username"  type="hidden" value="{{ request.user.username }}">
     <div class="container">
-
-        <div class="col-md-9">
+      <div class="col-md-9">
             <div style="width: 30px" class="row">
                 <div  class="col-md-3 col-md-offset-9">
                     <span  class="pull-left" hidden id="typing-text">
@@ -33,10 +32,11 @@
                             <div class="row {% if msg.read %}msg-read{% else %}msg-unread{% endif %}"
                                  data-id="{{ msg.id }}">
                                 <p class="{% if msg.sender == request.user %}pull-right{% else %}pull-left{% endif %}">
-                                    <span class="username">{{ msg.sender.username }}:</span>
-                                    {{ msg.text }}
+                                    <!-- <span class="username">{{ msg.sender.username }}:</span> -->
+                                    <img class="{% if msg.sender != request.user %}opponent_user_mess{% else %}{% endif %}" src="" />
+                                    <span class="message-text">{{ msg.text }}</span>
 
-                                    <span class="timestamp">&ndash; <span
+                                    <span class="timestamp"> <span
                                             data-livestamp="{{ msg.get_formatted_create_datetime }}">{{ msg.get_formatted_create_datetime }}</span></span>
                                 </p>
                             </div>
@@ -50,8 +50,8 @@
 
                     <div class="form-group">
                       <span id="newMessageAlert"><i class="fas fa-angle-double-down fa-beat"></i></span>
-                        <textarea id="chat-message" class="form-control message"
-                                  placeholder="{% trans 'Write a message' %}"></textarea>
+                        <input autocomplete="off" id="chat-message" class="form-control message"
+                                  placeholder="{% trans 'Write a message' %}">
                     </div>
 
                     <!-- <div class="form-group clearfix">
@@ -77,29 +77,69 @@
     <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
     <!-- You can alternatively load the minified version -->
     <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollmonitor/1.2.0/scrollMonitor.js"
-            integrity="sha256-BseZlDlA+yL4qu+Voi82iFa5aaifralQEXIjOjaXgeo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollmonitor/1.2.4/scrollMonitor.js" integrity="sha512-tXA4sVTQWtMwrZT/gP8GhRQlIlJzG6Jq3hFLifWs1Hy3XLVhYQaPctKNdBeLjLWOrprVhraKtQ1+S+OUhzPkDQ==" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollmonitor/1.2.4/scrollMonitor.js.map" type="application/octet-stream"></script>
     <script>
-
+$('header').css('padding','0')
+$('.timestamp').hide()
+timeStampHover()
+function timeStampHover (){
+  $('.timestamp').hide()
+  $('.pull-left').each(function () {
+      $(this).hover(function () {
+          $(this).find('.timestamp').show();
+          $(this).find('.message-text').hide();
+          $(this).find('[data-livestamp]').css("background-color","red")
+      },function(){
+          $(this).find('.timestamp').hide();
+          $(this).find('.message-text').show();
+      } )
+  });$('.pull-right').each(function () {
+      $(this).hover(function () {
+          $(this).find('.timestamp').show();
+          $(this).find('.message-text').hide();
+          $(this).find('[data-livestamp]').css("margin-left","-200px")
+      },function(){
+          $(this).find('.timestamp').hide();
+            $(this).find('.message-text').show();
+      } )
+  });
+}
+function mozScroll (){
+   setTimeout(function(){   $(document).scrollTop($(document).height());; }, 1);
+}
       $('#newMessageAlert').hide()
-      var $details = $(".messages"),
+      $('.messages').on("mousewheel", function() {
+       console.log($(document).scrollTop());
+   });
+      var $details = $("#messages"),
+
+          $messageHeight = $('.messages').height() - 324,
+          $addMessageHeight = $(".add-message").height()
+          $dynamicPosition = $messageHeight - $addMessageHeight
+
           $addMessage = $(".add-message"),
-          addMessagePos = $addMessage.position().top
+          $addMessagePos = $addMessage.position().top
 
-          detailsPos = $details.position().top + addMessagePos - 571; //need to create a variable
+          detailsPos = $details.position().top + $addMessagePos + 30; //need to create a variable
           $addMessage.css("position", "fixed").css("bottom",0);
-      // $(window).on("scroll", function() {
-      //
-      //     if ($(window).scrollTop() > detailsPos)
-      //         $addMessage.css("position", "static").css("bottom",10);
-      //     else
-      //         $addMessage.css("position", "fixed").css("bottom",0);
-      // });
 
-// $("#messages").animate({ scrollTop: $("#messages").height() }, "slow");
+
+      $(document).on("scroll", function() {
+          if ($(document).scrollTop() >= $dynamicPosition){
+              $addMessage.css("position", "static").css({"bottom":"10px"});
+
+              }
+          else{
+              $addMessage.css("position", "fixed").css({"bottom":"0px","height":"40px", "margin-left": "10px"});
+              }
+      });
+
+$("#messages").animate({ scrollTop: $("#messages").height() }, "slow");
 
         var base_ws_server_path = "{{ ws_server_path }}";
         $(document).ready(function () {
+          roundMessRad()
             var websocket = null;
             var monitor = null;
 
@@ -147,13 +187,28 @@
                     $('#user-list').append(tmpl(userInfo))
                 });
             }
+            function roundMessRad(){
+              $pullLeft = '.pull-left';
+              $pullRight = '.pull-right';
+              $(".row .msg-unread").each(function() {
+  if (($(this).has($pullRight).length) && ($(this).next().has($pullLeft).length)){
+    // find the parent and add class ONLY if the "IF" is true
+    $(this).children($pullRight).css( {"border-bottom-right-radius": "20px"});
+  }else if (($(this).has($pullRight).length) && ($(this).prev().has($pullLeft).length)){
+    $(this).children($pullRight).css( {"border-top-right-radius": "20px","border-bottom-right-radius": "0px"} );
+  }else if (($(this).has($pullRight).length) && ($(this).prev().has($pullRight).length) && ($(this).next().has($pullRight).length)){
+    $(this).children($pullRight).css( {"border-top-right-radius": "0px","border-bottom-right-radius": "0px"} );
+  }
+});
 
+            }
             function addNewMessage(packet) {
 
               $("#senderPacket").val(packet['sender_name'])
                 var msg_class = "";
                 if (packet['sender_name'] != $("#owner_username").val()) {
                     msg_class = "pull-left";
+
                 } else {
                     msg_class = "pull-right";
                 }
@@ -166,8 +221,12 @@
                         '</p> ' +
                         '</div>');
                 $('#messages').append(msgElem);
+
                 scrollToLastMessage()
                 newMessageAlert()
+                roundMessRad()
+                timeStampHover()
+                mozScroll()
             }
             function newMessageAlert(){
 $('#newMessageAlert').show()

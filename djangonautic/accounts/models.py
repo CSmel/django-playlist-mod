@@ -16,7 +16,7 @@ class Profile(models.Model):
     quote = models.CharField(max_length=30, blank=True)
     avatar = models.ImageField(default='profile.png',blank=True)
     def __str__(self):  # __unicode__ for Python 2
-        return self.user.username
+        return self.user.username 
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):

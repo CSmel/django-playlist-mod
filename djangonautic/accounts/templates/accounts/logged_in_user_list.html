@@ -6,10 +6,11 @@
   </div>
 
   <div id="logged-in-users">
-    <input type="text" id="currentUserImg" name="currentUserImg" value="">
-    <input type="text" id="currentUser" name="currentUser" value="">
-    <input type="text" id="senderPacket" name="sender" value="">
-    <h3>Contacts</h3>
+    <input type="hidden" id="currentUserImg" name="currentUserImg" value="">
+    <input type="hidden" id="currentUser" name="currentUser" value="">
+    <input type="hidden" id="senderPacket" name="sender" value="">
+    <hr />
+    <h4>Contacts</h4>
     {% if users %}
     <ul class="user-list2">
       {% for u in users %}
@@ -161,7 +162,7 @@
                var userName =  $(this).data('name');
               $("#currentUserImg").val(childImg);
               $("#currentUser").val(userName);
-              
+
             })
           });
 
