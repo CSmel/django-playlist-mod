@@ -2,7 +2,7 @@
 
 body {
   background-color: #0f121f;
-  background-image: url(/static/stars.png);
+  /* background-image: url(/static/stars.png); */
   color: #fff;
 }
 
@@ -22,18 +22,37 @@ h5 {
 a,
 a:hover,
 a:visited {
-  color: #fff;
+  color: #000;
   text-decoration: none;
+}
+.fabutton {
+  background: none;
+  padding: 0px;
+  border: none;
+}
+.profile-view {
+  border: 2px solid red;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px 2px 5px 2px;
+  background-color: #fff;
+  min-height: 30px !important
+}
+
+.profile-header {
+  background-color: #fff
 }
 
 .modal-content {}
 
 .modal.in .modal-dialog {
   position: fixed;
-  bottom: 0px;
-  right: 0px;
+  bottom: 80px;
+  right: 100px;
   margin: 0px;
-  width: 500px
+  height: 455px;
+  /* width: 338px */
+  width: 380px
 }
 
 .wrapper {
@@ -151,9 +170,49 @@ ul {
 }
 
 .logged-in-cont img,
-#opponent_user {
+#opponent_user,
+.opponent_user_mess {
   height: 30px;
   border-radius: 50px
+}
+
+/*animation for pulsing icon */
+.fa-beat {
+  animation: fa-beat 5s ease infinite;
+}
+
+@keyframes fa-beat {
+  0% {
+    transform: scale(1);
+  }
+
+  5% {
+    transform: scale(1.25);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(1.25);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  55% {
+    transform: scale(1.25);
+  }
+
+  70% {
+    transform: scale(1);
+  }
 }
 
 .close {
@@ -175,15 +234,74 @@ ul {
 .msg-unread>.pull-right {
   padding: 15px;
   background-color: #0084FF;
-  border-radius: 30px
+  border-radius: 30px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 20px
+}
+
+.pull-left {
+  position: relative;
+}
+
+#one,
+#two,
+#three {
+  position: fixed;
+  height: 30px;
+  background-color: green
+}
+
+#one {
+  margin-top: 50px
+}
+
+#two {
+  margin-top: 100px
+}
+
+.form-group {
+  margin-bottom: 0px !important
+}
+
+.messages-container {
+  margin-bottom: 0;
+  padding-bottom: 10px
+}
+
+#chat-message {
+  width: 100%
 }
 
 .messages {
-  width: 450px;
+  width: 300px;
+  margin-top: 0;
+  padding-bottom: 30px;
+}
+
+[data-livestamp] {
+  position: absolute;
+  background-color: rgba(0, 0, 0, .5) !important;
+  width: 170px;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 0px
+}
+
+.modal-body {
+  padding: 0 !important
 }
 
 .add-message {
-  width: 50%
+  z-index: 1;
+  width: 100%;
+  height: 40px;
+  width: 300px;
+  padding: 0;
+  /* position: fixed;
+  /* bottom: 40; */
+  margin-top: -50px
 }
 
 .article-detail .article h3 {
@@ -262,7 +380,8 @@ button img {
 
 .large-profile {
   height: 200px;
-  border-radius: 100px
+  border-radius: 100px;
+  border: 2px solid black
 }
 
 .logged-in-users-cont {
@@ -278,7 +397,7 @@ button img {
 
 #logged-in-users {
   position: fixed;
-  top: 0px;
+  top: 50vh;
   right: 0px;
   width: 200px;
 }

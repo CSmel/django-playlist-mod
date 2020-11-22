@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+  <h1>Group Wall</h1>
+  <p>Welcome!</p>
+<h2> Find information about your current commitees, coming soon.</h2>
+<h1></h1>
+{% for grp in group %}
+  {{grp.groupName}}
+{% endfor %}
+
+{% endblock %}

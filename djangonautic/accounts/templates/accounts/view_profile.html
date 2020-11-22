@@ -1,25 +1,68 @@
 {% extends 'base_layout.html' %}{% load static %}
 {% block content %}
-  <h1>Update Profile</h1>
-  <p>Welcome!</p> <a href="{% url 'accounts:updateProfile' pk=user.id %}">Edit Profile</a>
+
+<p>Welcome!</p>
 <div class="create-article">
-<h2>View Your Profile, {{ user.get_username}}!</h2>
-<div style="color:red">
-Max Age{{max_age}}
+  <h2>{{ user.get_username}}'s Profile!</h2>
+
+<a href="{% url 'accounts:updateProfile' pk=user.id %}"><button class="btn-sm btn btn-info">Edit Profile</button></a>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col">
+        {% if user.profile.avatar.url|length > 0 %}
+
+        <img class="center-block large-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image"> {% else %}
+        <img class="large-profile" src="{% static 'defaultVadar.png' %}" alt="larg profile image">
+        {% endif %}
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col text-center">
+        <span class="center-block"><h2>{{ user.first_name}} {{user.last_name}}</h2></span>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col text-center"><span class="center-block "><h3>{{user.profile.location}}</h3></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><label>First Name:</label>
+      {{user.first_name}}</div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><label>Last Name:</label>
+      {{user.last_name}}</div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><label>Email:</label>
+      {{user.email}}</div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><label>Location:</label>
+      {{user.profile.location}}</div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><label>Birth Date:</label>
+      {{user.profile.birth_date}}</div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><label>Website: </label>
+      {{user.profile.website}}</div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-3"><label>Quote: </label>
+      {{user.profile.quote}}</div>
+
+    </div>
   </div>
-{% if user.profile.avatar.url|length > 0 %}
 
-<img class="large-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">    {% else %}
-<img class="large-profile" src="{% static 'defaultVadar.png' %}" alt="larg profile image">
-{% endif %}
-{{ user.first_name}} {{user.last_name}}
-<br />{{ user.get_username}}
-<br> Location:{{user.profile.location}}
-<br />Birthday: {{user.profile.birthdate}}
-<br />Website:  {{user.profile.website}}
-<br />Quote: {{user.profile.quote}}
-
-
-  <img src="{{ article.thumb.url }}">
-<script src="/static/slugify.js"></script>
-{% endblock %}
+  <script src="/static/slugify.js"></script>
+  {% endblock %}
