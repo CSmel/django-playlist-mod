@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Article, Preference
+from .models import Article, Preference, ArticleComment
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from . import forms
+from .forms import NewCommentForm
 # Create your views here.
 def article_list(request):
     articles = Article.objects.all().order_by('date')
@@ -11,7 +12,22 @@ def article_list(request):
 def article_detail(request, slug):
     # return HttpResponse(slug)
     article = Article.objects.get(slug=slug)
-    return render(request,'articles/article_detail.html', {'article':article})
+    comments = ArticleComment.objects.all()
+    comment_query = ArticleComment.objects.filter(slug=article.slug).count()
+
+    if request.method == 'POST':
+        comment_form = forms.NewCommentForm(request.POST, request.FILES)
+        if comment_form.is_valid():
+            instance = comment_form.save(commit=False)
+            instance.content = request.POST.get('content')
+            instance.author =  request.user
+            instance.slug = article.slug
+            instance.save()
+            return redirect('articles:list')
+    else:
+        comment_form = forms.NewCommentForm()
+    return render(request,'articles/article_detail.html', {'article':article, 'comment_form': comment_form,'comment_query': comment_query, 'comments':comments})
+
 
 @login_required(login_url="/accounts/login/")
 def article_create(request):
@@ -102,14 +118,24 @@ def postpreference(request, postid, userpreference):
                         userpreference= int(userpreference)
 
                         if userpreference == 1:
-                                eachpost.like += 1
-                                eachpost.userliked += "   " + request.user.username+','
+
+                                try:
+                                    Article.objects.get(userliked__contains=request.user.username)
+                                except Article. DoesNotExist:
+                                    eachpost.userliked += "  " + request.user.username
+                                    eachpost.like += 1
+                                    eachpost.save()
+                                    return HttpResponse(eachpost.like, eachpost.userliked)
+
+                                else:
+                                    disabled = "disabled"
+                                    return HttpResponse(disabled)
                         elif userpreference == 2:
                                 #eachpost.dislikes +=1
 
                           upref.save()
 
-                        eachpost.save()
+
 
 
 
@@ -117,7 +143,7 @@ def postpreference(request, postid, userpreference):
 
                         context= {'eachpost': eachpost,
                           'postid': postid}
-                        return HttpResponse(eachpost.like)
+
                         return render (request, 'articles/article_detail_ajax.html', context)
 
 

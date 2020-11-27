@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls')),
     url(r'^articles/', include('articles.urls')),
     url(r'^groups/', include('groups.urls')),
-    url(r'^timesheet/', include('timesheet_project.urls')),
+    url(r'^timesheet/', include('timecards.urls')),
     url(r'helpdesk/', include('helpdesk.urls')),
     url(r'^chat/', include('django_private_chat.urls')),
     url(r'^about/$', views.about),

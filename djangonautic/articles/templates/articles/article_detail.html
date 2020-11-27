@@ -1,42 +1,98 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
-  {{string}}ss
+
 <div class="article-detail">
 <div class="article">
   <img src="{{ article.thumb.url }}">
 <h2>{{ article.title }}</h2>
+{{ request.GET.title}}
+
+{{request.GET.slug}}
 <p>{{ article.body }}</<p>
 <p>{{ article.date }}</p>
 <p></p>
 <form id="likeForm" method="POST" action=".">
 {% csrf_token %}
+<button class="showList" type="submit" id="#likeButtonThumb"  class="fabutton">
+      <i class="fas disable fa-thumbs-up"></i><span id="likeCount" value="{{article.like}}">{{article.like}}</span>
 
-<button type="submit" id="#likeButtonThumb"  class="fabutton">
-      <i class="fas fa-thumbs-up"></i><span id="likeCount" value="{{article.like}}">{{article.like}}</span>
 
-      {{user}}
-      {% with article.userliked as list %}
-        {% for i in list.split %}
-          <span>{{ i }}<br></span>
-        {% endfor %}
-      {% endwith %}
+</button></form>
 
-      <hr />
+<div id="likedContainer">
+<h4>Like</h4>
 
-</button>
+{% with article.userliked as list %}
+  {% for i in list.split %}
+    <span>{{ i }}<br></span>
+  {% endfor %}
+{% endwith %}
+  </div>
 </div>
+</div>
+<!-- COMMENTS  -->
+<h2>Leave your comment!</h2>
+<div id="comments_section">
+
+  {% if user.is_authenticated %}
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ comment_form }}
+      <button class="btn btn-info" type="submit">Add comment <i class="fas fa-comments"></i></button>
+    </div>
+  </form>
+  {% else %}
+  <a class="btn btn-outline-info" href="{% url 'login' %}?next={{request.path}}">Log in to add a comment!</a><br>
+  {% endif %}
+
+
+  <strong class="text-secondary">{{comment_query}} Comment{{ comment_query|pluralize }}</strong>
+  <hr>
+  <ul>
+    {% for comment in comments %}
+      {% if comment.slug|stringformat:"s" == article.slug|stringformat:"s" %}
+    <li>
+     <div>
+        <span>
+          <strong class="text-info">{{ comment.author }} </strong>
+          <small class="text-muted">{{ comment.date_posted }}</small>
+        </span>
+        <p>
+          {{ comment.content|safe }}
+        </p>
+      </div>
+    </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous"></script>
 <script type="text/javascript">
+  $(document).ready(function(){
+      if ($('#likedContainer:contains("csmel")')) {
+        $(".fabutton").prop("disabled", true);
+        $(".disable").css("color","red");
+      }
+      else{return;}
+   });
 
 
+$('#likedContainer').hide();
+    $(".showList").mouseover(function(){
+      $('#likedContainer').show();
+    });
+    $(".showList").mouseout(function(){
+      $('#likedContainer').hide();
+    });
   // form upload
 $("#likeButtonThumb").on("click", function(){
   $('#likeForm').submit();
 });
+
 
  // form upload
  $('#likeForm').submit(function(e){
@@ -67,9 +123,15 @@ const csrftoken = getCookie('csrftoken');
          type: 'POST',
          data: formData,
          success: function (response) {
+           if (response === 'disabled'){
+            $(".fabutton").prop("disabled", true);
+            $(".disable").css("color","red")
+           }
+           else{
+             $('#likeCount').html(response);
 
-               $('#likeCount').html(response);
-
+           }
+console.log('response',response)
 
          },
          cache: false,

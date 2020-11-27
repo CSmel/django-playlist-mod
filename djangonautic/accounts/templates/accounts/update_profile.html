@@ -32,24 +32,23 @@
         <h2 class="flow-text">Update your information</h2>
         <form action="." method="POST" class="padding" enctype="multipart/form-data">
           {{ formset.management_form }} {% csrf_token %} {{ noodle_form.as_p }}
-
-<hr />
           <div class="form">
-            {% for form in formset %}
+
             {% for field in formset %}
 
-            {% for field in form.visible_fields %}
             <div class="form-group">
+
               {% csrf_token %}
-              <label for="{{ field.id_for_label }} class=" mylabel">{{ field.label }}:</label>
+              <label>{{ field.label }}:</label>
               <div class="col">
                 {{ field }}
 
               </div>
             </div>
+
             {% endfor %}
-            {% endfor %}
-            {% endfor %}
+
+
           </div>
           <input name="form-2-submit" type="submit" class="btn-floating btn-large waves-light waves-effect"><i class="large material-icons">done</i></>
           <a href="#" onclick="window.history.back(); return false;" title="Cancel" class="btn-floating waves-effect waves-light red"><i class="material-icons">history</i></a>

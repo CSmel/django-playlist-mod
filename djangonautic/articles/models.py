@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import User
 # Create your models here.
 class Article(models.Model):
@@ -19,6 +20,15 @@ class Article(models.Model):
 
     def snippet(self):
         return self.body[:50]+'...'
+
+class ArticleComment(models.Model):
+    slug = models.SlugField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return str(self.author) + ', ' + self.slug[:40]
 
 
 class Preference(models.Model):

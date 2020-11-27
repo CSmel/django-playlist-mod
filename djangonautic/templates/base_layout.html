@@ -41,7 +41,7 @@
 
           <li><a href="{% url 'articles:create' %}">New Article</a></li>
           <li><a href="{% url 'groups:grouplist' %}">Group</a></li>
-          <li><a href="{% url 'massive_edit' %}">Time Card</a></li>
+          <li><a href="{% url 'timecards:timecardview' %}">Time Card</a></li>
           <li><a href="{% url 'helpdesk:home' %}">Help Desk</a></li>
         </ul>
         <ul class=" nav navbar-nav navbar-right">
@@ -91,12 +91,12 @@
   </header>
   <div class="wrapper">
 
-<button style="visibility:  hidden" id="loadData">
+<!-- <button style="visibility:  hidden" id="loadData">
       LOAD
     </button>
     <div style="visibility:  hidden"  id="siteloader">
 
-    </div>
+    </div> -->
     {% endblock %}
     {% block content %}
     {% endblock %}
