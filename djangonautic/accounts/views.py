@@ -10,8 +10,8 @@ from django import forms
 # from .models import UserProfile
 from .forms import UserForm, UpdateAvatar
 from django.forms.models import inlineformset_factory
-from django.core.exceptions import PermissionDenied
-from django.http import JsonResponse
+from django.core.exceptions import PermissionDenied, ObjectDoesNotExist
+from django.http import JsonResponse, HttpResponseNotFound
 
 def messenger_view(request):
 
@@ -85,30 +85,36 @@ def update_profile_view(request, pk):
     formset = ProfileInlineFormset(instance=user)
     update_avatar = ProfileInlineFormsetAvatar(instance=user)
     if request.user.is_authenticated and request.user.id == user.id:
-
-
         if request.is_ajax() and request.method == 'POST':
             user_form = UserForm(request.POST, request.FILES, instance=user)
 
             update_avatar = ProfileInlineFormsetAvatar(request.POST, request.FILES, instance=user)
             if user_form.is_valid() or formset.is_valid():
-                created_user = user_form.save(commit=False)
-                update_avatar = ProfileInlineFormsetAvatar(request.POST, request.FILES, instance=created_user)
+                if len(request.FILES) != 0:
+                    created_user = user_form.save(commit=False)
+                    update_avatar = ProfileInlineFormsetAvatar(request.POST, request.FILES, instance=created_user)
 
-                update_avatar.save()
-                photo = list(Profile.objects.filter(user_id=user.id).values_list('avatar'))
-                return JsonResponse({'error': False, 'message': 'Uploaded Successfully', 'url': photo[0]})
+                    update_avatar.save()
+                    photo = list(Profile.objects.filter(user_id=user.id).values_list('avatar'))
+                    return JsonResponse({'error': False, 'message': 'Uploaded Successfully', 'url': photo[0]})
+                elif len(request.FILES) == 0:
+
+                    instance = Profile.objects.get(user_id=user.id)
+                    instance.avatar = 'images/logo.png'
+                    instance.save()
+                    photo = list(Profile.objects.filter(user_id=user.id).values_list('avatar'))
+                    return JsonResponse({'error': False, 'message': 'Default','url': photo[0]})
+
+
             else:
-                return JsonResponse({'error': True, 'errors': update_avatar.errors})
+
+                update_avatar =  ProfileInlineFormsetAvatar(instance=user)
 
 
-            update_avatar =  ProfileInlineFormsetAvatar(instance=user)
+                return render(request, 'accounts/django_image_upload_ajax.html', {
 
-
-            return render(request, 'accounts/django_image_upload_ajax.html', {
-
-                    "avatar": update_avatar,
-                })
+                        "avatar": update_avatar,
+                        })
 
         if 'form-2-submit' in request.POST:
 
@@ -123,13 +129,29 @@ def update_profile_view(request, pk):
                 formset.save()
 
                 return redirect('accounts:viewProfile', pk=user.id)
-
-        return render(request, "accounts/update_profile.html", {
+        else:
+            try:
+                Profile.objects.get(user_id=user.id, avatar='')
+                instance = Profile.objects.get(user_id=user.id)
+                instance.avatar = 'images/logo.png'
+                instance.save()
+            #return redirect('articles:list')
+                return render(request, "accounts/update_profile.html", {
             #"noodle": pk,
-            "noodle_form": user_form,
-            "formset": formset,
-            "avatar": update_avatar,
-        })
+                    "noodle_form": user_form,
+                    "formset": formset,
+                    "avatar": update_avatar,
+                    })
+
+            except ObjectDoesNotExist:
+
+            #return redirect('articles:list')
+                return render(request, "accounts/update_profile.html", {
+            #"noodle": pk,
+                    "noodle_form": user_form,
+                    "formset": formset,
+                    "avatar": update_avatar,
+                    })
     else:
         raise PermissionDenied
 

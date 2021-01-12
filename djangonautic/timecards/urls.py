@@ -5,4 +5,6 @@ from . import views
 app_name = 'timecards'
 urlpatterns = [
     url(r'^$', views.timecards_view,name="timecardview"),
+    url(r'^create/(?P<pk>[\-\w]+)/$', views.timecard_create,name="timecardcreate"),
+
 ]

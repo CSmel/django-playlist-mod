@@ -25,11 +25,75 @@ a:visited {
   color: #000;
   text-decoration: none;
 }
+
+/* .timesheet-input {
+  width: 80px !important
+} */
+input[type="number"] {
+  width: 60px
+}
+
+.previous-month-fa {
+  position: absolute;
+  margin: 0 20px 0 -27px;
+}
+
+.previous-month-fa input {
+  border: 2px solid blue;
+  border-right: none;
+  margin-top: -5px;
+  height: 30px;
+  padding: 10px
+}
+
+.next-month-fa input {
+  border: 2px solid blue;
+  border-left: none;
+  margin-top: -5px;
+  height: 30px;
+  padding: 10px
+}
+
+.next-month-fa {
+  position: absolute;
+  margin: 0;
+}
+
+.next-month-fa i {
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  color: gray;
+}
+
+.previous-month-fa i {
+  position: absolute;
+  right: 4px;
+  top: 3px;
+  color: gray;
+}
+
+.previous-month-fa:hover,
+.next-month-fa:hover {
+  cursor: pointer;
+}
+
+.date-browse {
+  border: 2px solid blue;
+  background-color: #D5E5F4;
+  position: relative;
+  width: 380px;
+  text-align: center;
+  padding: 5px;
+  border-left: none
+}
+
 .fabutton {
   background: none;
   padding: 0px;
   border: none;
 }
+
 .profile-view {
   border: 2px solid red;
   border-radius: 5px;
@@ -55,17 +119,34 @@ a:visited {
   width: 380px
 }
 
-.wrapper {
-  max-width: 960px;
-  margin:20px auto;
+.background-append {
+  height: 60px;
 }
-#likedContainer{
-  position:absolute;
-  background-color:  rgba(0, 0, 0, .7);
+
+.wrapper {
+  max-width: 60vw;
+  margin: 20px auto;
+}
+
+/* Equal width */
+.col-md-1 {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+/* Add gutters */
+#likedContainer {
+  position: absolute;
+  background-color: rgba(0, 0, 0, .7);
   padding: 10px;
   border-radius: 5px;
   color: white
 }
+
 div.wrapper>h1 {
   text-align: center;
   margin: 100px auto;
@@ -390,6 +471,10 @@ button img {
   border: 2px solid black
 }
 
+.hidden-input {
+  visibility: hidden;
+}
+
 .logged-in-users-cont {
   display: flex;
   position: relative;
@@ -406,4 +491,16 @@ button img {
   top: 50vh;
   right: 0px;
   width: 200px;
+}
+
+@media (min-width: 768px) {
+  .col-xs-3 {
+    width: 100% !important
+  }
+}
+
+@media (min-width: 992px) {
+  .col-md-1 {
+    width: 11% !important;
+  }
 }

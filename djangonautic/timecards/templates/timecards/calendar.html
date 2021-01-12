@@ -1,0 +1,7 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<a href="{% url 'timecards:calendar' %}?{{ prev_month }}"> Previous Month </a>
+<a href="{% url 'timecards:calendar' %}?{{ next_month }}"> Next Month </a>
+
+{{ calendar }}
+{% endblock %}

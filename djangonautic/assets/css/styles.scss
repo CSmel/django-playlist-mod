@@ -1,0 +1,567 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+body {
+  background-color: #0f121f;
+  /* background-image: url(/static/stars.png); */
+  color: #fff;
+}
+
+body * {
+  font-family: Ubuntu;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+  margin: 0;
+}
+
+a,
+a:hover,
+a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+/* .timesheet-input {
+  width: 80px !important
+} */
+input[type="number"] {
+  width: 60px
+}
+
+.previous-month-fa {
+  position: absolute;
+  margin: 0 20px 0 -27px;
+}
+
+.previous-month-fa input {
+  border: 2px solid blue;
+  border-right: none;
+  margin-top: -5px;
+  height: 30px;
+  padding: 10px
+}
+
+.next-month-fa input {
+  border: 2px solid blue;
+  border-left: none;
+  margin-top: -5px;
+  height: 30px;
+  padding: 10px
+}
+
+.next-month-fa {
+  position: absolute;
+  margin: 0;
+}
+
+.next-month-fa i {
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  color: gray;
+}
+
+.previous-month-fa i {
+  position: absolute;
+  right: 4px;
+  top: 3px;
+  color: gray;
+}
+
+.previous-month-fa:hover,
+.next-month-fa:hover {
+  cursor: pointer;
+}
+
+.date-browse {
+  border: 2px solid blue;
+  background-color: #D5E5F4;
+  position: relative;
+  width: 380px;
+  text-align: center;
+  padding: 5px;
+  border-left: none
+}
+
+.fabutton {
+  background: none;
+  padding: 0px;
+  border: none;
+}
+
+.profile-view {
+  border: 2px solid red;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px 2px 5px 2px;
+  background-color: #fff;
+  min-height: 30px !important
+}
+
+.profile-header {
+  background-color: #fff
+}
+
+.modal-content {}
+
+.modal.in .modal-dialog {
+  position: fixed;
+  bottom: 80px;
+  right: 100px;
+  margin: 0px;
+  height: 455px;
+  /* width: 338px */
+  width: 380px
+}
+
+.background-append {
+  height: 60px;
+}
+
+.wrapper {
+  max-width: 60vw;
+  margin: 20px auto;
+}
+
+/* Equal width */
+.col-md-1 {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+/* Add gutters */
+#likedContainer {
+  position: absolute;
+  background-color: rgba(0, 0, 0, .7);
+  padding: 10px;
+  border-radius: 5px;
+  color: white
+}
+
+div.wrapper>h1 {
+  text-align: center;
+  margin: 100px auto;
+  font-size: 2.4em
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px 0;
+}
+
+nav {
+  justify-self: end;
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+nav button {
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  font-size: 16px;
+}
+
+ul {
+  list-style-type: none !important
+}
+
+.online-duration {
+  font-family: Ubuntu;
+  font-weight: bolder;
+  height: 30px;
+  width: 30px;
+  font-size: 10px;
+  border-radius: 100px;
+  color: #39FF14;
+  background-color: white;
+  padding: 3px
+}
+
+.users-on-off {
+  border: 2px solid red;
+  width: 30% !important;
+  position: absolute;
+  margin-top: 50px
+}
+
+.user-list {
+  position: relative !important;
+  top: 0;
+  right: 0;
+  overflow: auto;
+  margin: 0;
+  padding: 20px;
+  border-left: 1px solid #DDD;
+}
+
+.articles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.article {
+  padding: 10px;
+  border: 1px solid #00dba0;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.article h2 {
+  font-size: 1.2em;
+}
+
+.article .author {
+  padding: 10px;
+  background: #00dba0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  color: #0f121f;
+}
+
+.article-detail .article {
+  padding: 0;
+}
+
+.article-detail .article img {
+  max-width: 100%;
+}
+
+.article-detail .article h2 {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 2em
+}
+
+.logged-in-cont {
+  display: flex;
+  flex-direction: row;
+}
+
+.logged-in-cont img,
+#opponent_user,
+.opponent_user_mess {
+  height: 30px;
+  border-radius: 50px
+}
+
+/*animation for pulsing icon */
+.fa-beat {
+  animation: fa-beat 5s ease infinite;
+}
+
+@keyframes fa-beat {
+  0% {
+    transform: scale(1);
+  }
+
+  5% {
+    transform: scale(1.25);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(1.25);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  55% {
+    transform: scale(1.25);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+}
+
+.close {
+  font-size: 30px !important;
+  margin-left: auto;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  padding-top: 0 !important;
+}
+
+.modal-header>p {
+  padding-top: 0;
+  margin-top: 0
+}
+
+.msg-unread>.pull-right {
+  padding: 15px;
+  background-color: #0084FF;
+  border-radius: 30px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 20px
+}
+
+.pull-left {
+  position: relative;
+}
+
+#one,
+#two,
+#three {
+  position: fixed;
+  height: 30px;
+  background-color: green
+}
+
+#one {
+  margin-top: 50px
+}
+
+#two {
+  margin-top: 100px
+}
+
+.form-group {
+  margin-bottom: 0px !important
+}
+
+.messages-container {
+  margin-bottom: 0;
+  padding-bottom: 10px
+}
+
+#chat-message {
+  width: 100%
+}
+
+.messages {
+  width: 300px;
+  margin-top: 0;
+  padding-bottom: 30px;
+}
+
+[data-livestamp] {
+  position: absolute;
+  background-color: rgba(0, 0, 0, .5) !important;
+  width: 170px;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 0px
+}
+
+.modal-body {
+  padding: 0 !important
+}
+
+.add-message {
+  z-index: 1;
+  width: 100%;
+  height: 40px;
+  width: 300px;
+  padding: 0;
+  /* position: fixed;
+  /* bottom: 40; */
+  margin-top: -50px
+}
+
+.article-detail .article h3 {
+  text-align: center;
+}
+
+.article-detail .article p {
+  margin: 10px 20px
+}
+
+.site-form {
+  margin-top: 60px;
+  border: 1px solid #00dba0;
+  padding: 20px;
+}
+
+.site-form input,
+.site-form textarea {
+  display: block;
+  margin: 20px 0 0px 0;
+  padding: 10px;
+}
+
+.small-profile {
+  height: 50px;
+  border-radius: 50px
+}
+
+a.highlight {
+  border: 1px solid #00dba0;
+  padding: 10px;
+  border-radius: 4px;
+  color: #00dba0;
+}
+
+.helptext,
+.helptext ul {
+  margin: 0 auto 20px;
+  color: #bbb;
+  font-size: 14px;
+  display: block;
+}
+
+.errorlist li {
+  padding: 10px;
+  list-style-type: none;
+  border: 1px solid #FF5722;
+  margin: 10px 0;
+  color: #FF5722
+}
+
+.errorlist {
+  padding: 0;
+}
+
+button img {
+  padding-right: 5px
+}
+
+.fa-circle {
+  color: green;
+  position: absolute;
+  margin-top: 20px;
+  margin-left: -17px;
+  font-size: 10px
+}
+
+.site-form input[type="submit"] {
+  background: #00dba0;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.large-profile {
+  height: 200px;
+  border-radius: 100px;
+  border: 2px solid black
+}
+
+.hidden-input {
+  visibility: hidden;
+}
+
+.logged-in-users-cont {
+  display: flex;
+  position: relative;
+}
+
+.users-on-off {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+}
+
+#logged-in-users {
+  position: fixed;
+  top: 50vh;
+  right: 0px;
+  width: 200px;
+}
+/* sass extend variables */
+$table-border-color:  #000;
+
+/* _tables.scss:132 */
+$table-dark-color: white;
+$table-dark-bg: #212529;
+$table-dark-border-color: #32383E;
+$table-dark-accent-bg: red;
+$table-dark-hover-bg: red;
+/* _print.scss:123 */
+.table-dark {
+  color: inherit;
+
+  th,
+  td,
+  thead th,
+  tbody + tbody {
+    border-color: $table-border-color;
+  }
+}
+
+/* _tables.scss:132 */
+.table-dark {
+  color: $table-dark-color;
+  background-color: $table-dark-bg;
+
+  th,
+  td,
+  thead th {
+    border-color: $table-dark-border-color!important;
+  }
+
+  &.table-bordered {
+    border: 0;
+  }
+
+  &.table-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: $table-dark-accent-bg;
+    }
+  }
+
+  // &.table-hover {
+  //   tbody tr {
+  //     @include hover {
+  //       background-color: $table-dark-hover-bg;
+  //     }
+  //   }
+  // }
+
+}
+
+@for $i from 0 through 4{
+  #id_payroll_set-#{$i}-satTime{
+    background-color: red
+  }
+}
+@for $i from 0 through 4{
+  #id_payroll_set-#{$i}-sunTime{
+    background-color: red
+  }
+}
+@media (min-width: 768px) {
+  .col-xs-3 {
+    width: 100% !important
+  }
+}
+
+@media (min-width: 992px) {
+  .col-md-1 {
+    width: 11% !important;
+  }
+}

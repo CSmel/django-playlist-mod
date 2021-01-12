@@ -5,7 +5,7 @@
 <div class="create-article">
   <h2>{{ user.get_username}}'s Profile!</h2>
 
-<a href="{% url 'accounts:updateProfile' pk=user.id %}"><button class="btn-sm btn btn-info">Edit Profile</button></a>
+  <a href="{% url 'accounts:updateProfile' pk=user.id %}"><button class="btn-sm btn btn-info">Edit Profile</button></a>
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col">
@@ -18,48 +18,59 @@
     </div>
     <div class="row d-flex justify-content-center">
       <div class="col text-center">
-        <span class="center-block"><h2>{{ user.first_name}} {{user.last_name}}</h2></span>
+        <span class="center-block">
+          <h2>{{ user.first_name}} {{user.last_name}}</h2>
+        </span>
       </div>
     </div>
 
     <div class="row">
 
-      <div class="col text-center"><span class="center-block "><h3>{{user.profile.location}}</h3></span>
+      <div class="col text-center"><span class="center-block ">
+          <h3>{{user.profile.location}}</h3>
+        </span>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-3"><label>First Name:</label>
-      {{user.first_name}}</div>
+        {{user.first_name}}
+      </div>
 
     </div>
     <div class="row">
       <div class="col-xs-3"><label>Last Name:</label>
-      {{user.last_name}}</div>
+        {{user.last_name}}
+      </div>
 
     </div>
     <div class="row">
       <div class="col-xs-3"><label>Email:</label>
-      {{user.email}}</div>
+        {{user.email}}
+      </div>
 
     </div>
     <div class="row">
       <div class="col-xs-3"><label>Location:</label>
-      {{user.profile.location}}</div>
+        {{user.profile.location}}
+      </div>
 
     </div>
     <div class="row">
       <div class="col-xs-3"><label>Birth Date:</label>
-      {{user.profile.birthdate}}</div>
+        {{user.profile.birthdate}}
+      </div>
 
     </div>
     <div class="row">
       <div class="col-xs-3"><label>Website: </label>
-      {{user.profile.website}}</div>
+        {{user.profile.website}}
+      </div>
 
     </div>
     <div class="row">
       <div class="col-xs-3"><label>Quote: </label>
-      {{user.profile.quote}}</div>
+        {{user.profile.quote}}
+      </div>
 
     </div>
   </div>

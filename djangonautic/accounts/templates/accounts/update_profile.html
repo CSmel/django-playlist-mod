@@ -5,26 +5,27 @@
   <div class="col s12 m8 offset-m2">
     <form action="." id="id_ajax_upload_form" method="POST" class="padding" enctype="multipart/form-data" novalidate="">
 
-      <div id="test">
-  </div>
-        {% if user.profile.avatar.url|length > 0 %}
-        <img id="ajaxImage" class="large-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image"> {% else %}
-        <img class="large-profile" src="{% static 'defaultVadar.png' %}" alt="larg profile image">
-        {% endif %}
+      {% if user.profile.avatar.url|length > 0 %}
+      <img id="ajaxImage" class="large-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image"> {% else %}
+      <img class="large-profile" src="{% static 'default/profile.png' %}" alt="larg profile image">
+      {% endif %}
 
-        <button id="edit-avatar"><i class="fas fa-camera"></i></button>
-        <ul>
-          <li>
-            <button id="upload-photo" style="display: none" class="btn-info btn btn-xs avatar-sub-button">Upload a photo...</button>
-          </li>
-          <li>
-            <button id="remove-photo" style="display: none" class="btn-info btn btn-xs avatar-sub-button">Remove photo</button>
-          </li>
-        </ul>
+      <button id="edit-avatar"><i class="fas fa-camera"></i></button>
+      <ul>
+        <li>
+          <button id="upload-photo" style="display: none" class="btn-info btn btn-xs avatar-sub-button">Upload a photo...</button>
+        </li>
+        <li>
+          <button id="remove-photo" style="display: none" class="btn-info btn btn-xs avatar-sub-button">Remove photo</button>
+          <!-- <input name="remove-photot" type="submit" class="btn-info btn btn-xs avatar-sub-button">Remove Photo</> -->
+
+        </li>
+      </ul>
 
       {% csrf_token %}
       {{avatar.as_p}}
-      <input name="form-1-submit" type="submit" value="edit" style="visibility: hidden" />
+      <input name="form-1-submit" type="submit"  style="display:none" value="edit" />
+
 
     </form>
     <div class="card">
@@ -33,149 +34,28 @@
         <form action="." method="POST" class="padding" enctype="multipart/form-data">
           {{ formset.management_form }} {% csrf_token %} {{ noodle_form.as_p }}
           <div class="form">
-
             {% for field in formset %}
-
             <div class="form-group">
-
               {% csrf_token %}
-              <label>{{ field.label }}:</label>
+
               <div class="col">
                 {{ field }}
-
               </div>
             </div>
-
             {% endfor %}
-
-
           </div>
           <input name="form-2-submit" type="submit" class="btn-floating btn-large waves-light waves-effect"><i class="large material-icons">done</i></>
           <a href="#" onclick="window.history.back(); return false;" title="Cancel" class="btn-floating waves-effect waves-light red"><i class="material-icons">history</i></a>
 
-          </form>
+        </form>
       </div>
 
     </div>
 
   </div>
-
-
-
-
-
-
 </div>
 </div>
 </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-   // $('.form-control.date').datepicker({format: "dd.mm.yyyy"});
-  $("#edit-avatar").on("click", function(e) {
-    e.preventDefault();
-    $(".avatar-sub-button").toggle(); // Shows
-
-  });
-
-  $("#upload-photo").click(function(e) {
-    e.preventDefault();
-    $("#id_profile-0-avatar").click();
-
-  });
-  $("#remove-photo").click(function(e) {
-    $("#profile-0-avatar-clear_id").is(":checked");
-    e.preventDefault();
-    $("#profile-0-avatar-clear_id").click();
-
-  });
-  $("#id_profile-0-avatar").on("change", function() {
-    var $form = $(this).closest("form");
-    $form.find("input[name=form-1-submit]").click();
-  });
-
-  $("#profile-0-avatar-clear_id").on("change", function() {
-    var $form = $(this).closest("form");
-    $form.find("input[name=form-1-submit]").click();
-  });
-
-
-
-  var p = document.querySelectorAll("p");
-  p[0].style.display = "none";
-  p[1].style.display = "none";
-
-
-
-
-  function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== "") {
-      var cookies = document.cookie.split(";");
-      for (var i = 0; i < cookies.length; i++) {
-        var cookie = jQuery.trim(cookies[i]);
-        // Does this cookie string begin with the name we want?
-        if (cookie.substring(0, name.length + 1) === (name + "=")) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  }
-  var csrftoken = getCookie("csrftoken");
-
-  function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-  }
-  $.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-        xhr.setRequestHeader("X-CSRFToken", csrftoken);
-      }
-    }
-  });
-
-
-
-  // form upload
-
-  $("#id_ajax_upload_form").submit(function(e) {
-
-    e.preventDefault();
-    $form = $(this);
-    var formData = new FormData(this);
-    //alert(formData)
-    $.ajax({
-      url: window.location.pathname,
-      type: "POST",
-      data: formData,
-      action: "ajax",
-      //csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
-      cache: false,
-      dataType: "json",
-      success: function(response) {
-      var igSrc="/media/"+response.url;
-     $('#ajaxImage').attr("src",igSrc);
-
-
-      },
-      error:function(){
-        alert('error');
-      },
-      contentType: false,
-      processData: false,
-    });
-
-  });
-
-
-
-
-</script>
-
 
 {% endblock %}

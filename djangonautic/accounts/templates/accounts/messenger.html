@@ -1,26 +1,29 @@
 <!--<h5 class="modal-title">Messenger</h5> -->
+{% load static %}
 <div class="modal-header">
 
- <p> <img id="opponent_user" src=""/>
-                    <span class="otherUser"></span></p>
-   <!--<h5 class="modal-title">Messenger</h5> -->
-   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
-   </button>
- </div>
- <div class="modal-body" style="padding-bottom: 0">
+  <p> <img id="opponent_user" src="" />
+    <span class="otherUser"></span>
+  </p>
+  <!--<h5 class="modal-title">Messenger</h5> -->
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" style="padding-bottom: 0">
 
-    <div class="container">
-      <iframe id="iframeWindow" style="border: none; left: 0; height: 455px; width: 360px; padding-bottom: 20px" src=""></iframe>
-        </div>
+  <div class="container">
+    <iframe id="iframeWindow" style="border: none; left: 0; height: 455px; width: 360px; padding-bottom: 20px" src=""></iframe>
+  </div>
 
-    </div>
+</div>
 
-	     <!--< <div class="modal-footer">
+<!--< <div class="modal-footer">
 
     button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-    <!--<button type="button" class="submit-btn btn btn-primary">Create</button>
+<!--<button type="button" class="submit-btn btn btn-primary">Create</button>
   </div>-->
+
 <script type="text/javascript">
   autoScroll = function() {
     var $contents = $('#iframeWindow').contents();

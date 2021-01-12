@@ -7,6 +7,7 @@ from django.contrib.sessions.models import Session
 from django.contrib.sessions.backends.db import SessionStore
 from django.utils import timezone
 from datetime import datetime
+
 import time
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -14,14 +15,16 @@ class Profile(models.Model):
     birthdate = models.DateField(null=True, blank=True)
     website = models.CharField(max_length=30, blank=True)
     quote = models.CharField(max_length=30, blank=True)
-    avatar = models.ImageField(default='profile.png',blank=True)
+    avatar = models.ImageField(upload_to='media/',default='profile.png', blank=True)
     def __str__(self):  # __unicode__ for Python 2
-        return self.user.username 
+        return self.user.username
+
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
+
     instance.profile.save()
 
 def get_all_logged_in_users():

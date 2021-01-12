@@ -12,17 +12,15 @@
   <meta name="author" content="SitePoint">
   {% endblock %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
-  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <link rel="stylesheet" href="{% static '\fontawesome\fontawesome-free-5.14.0-web\css\all.css' %}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" />
-
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw=="
+    crossorigin="anonymous" />
 
 </head>
 
 <body>
-
   <div class="modal fade" tabindex="-1" role="dialog" id="modal">
     <div class="modal-dialog" role="document">
       <div class="modal-content"></div>
@@ -47,7 +45,7 @@
         <ul class=" nav navbar-nav navbar-right">
           <li> {% if user.profile.avatar.url|length > 0 %}
             <img class="small-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">
-          <li>
+          </li>
 
           <li>
 
@@ -58,7 +56,7 @@
           </li> {% else %}
           <li>
 
-            <img class="small-profile" src="{% static 'defaultVadar.png' %}" alt="larg profile image">
+            <img class="small-profile" src="{% static 'default/profile.png' %}" alt="larg profile image">
           </li>
           <li>
 
@@ -91,17 +89,17 @@
   </header>
   <div class="wrapper">
 
-<!-- <button style="visibility:  hidden" id="loadData">
-      LOAD
-    </button>
-    <div style="visibility:  hidden"  id="siteloader">
-
-    </div> -->
     {% endblock %}
     {% block content %}
     {% endblock %}
     {%block js%}
     {%endblock%}
+    <button style="display: none" id="loadData">
+      LOAD
+    </button>
+    <div style="display:none" id="siteloader">
+
+    </div>
 
   </div>
   {% if user.is_authenticated %}
@@ -111,61 +109,19 @@
   {% render_logged_in_user_list %}
   {% endblock %}
   {% endif %}
-  <script type="text/javascript">
-    initialise = function() {
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-      $('.online-duration').each(function(index, value) {
-        // less that 24 hours.
-        var $start = $(`#time-${index+1}`).text()
-        // var $createEnd = moment()
-        // var $end = moment($createEnd).format("MM/DD/YYYY hh:mm:ss")
-        // var $duration = moment.utc(moment($end).diff(moment($start))).format("HH:mm")
-        let $minutes = moment().diff(moment($start), 'minutes');
-        let $days = moment().diff(moment($start), 'days');
-        let $hours = moment().diff(moment($start), 'hours');
-
-        if ($hours === 0) {
-          $(`#endtime-${index+1}`).text($minutes + " minutes"); // curent time
-        } else if ($hours >= 0 && $days <= 1) {
-          $(`#endtime-${index+1}`).text($hours + " Hours"); // curent time
-        } else if ($days >= 2) {
-          $(`#endtime-${index+1}`).text($days + " Days")
-        }
-
-      });
-
-      var cu = $('#current-user').text()
-      $(".in").each(function() {
-        if ($(this).is(":contains('" + cu + "')")) {
-          $(this).remove()
-
-        }
-      });
-      $(".bs-modal").each(function() {
-        $(this).modalForm({
-          formURL: $(this).data('form-url')
-        });
-      });
-
-    };
-    $("#modal").on("hidden.bs.modal", function() {
-      $(".modal-content").html("");
-    });
-    $(document).ready(function() {
-      initialise();
-
-    });
-    $(window).on('load',function(){
-
-  $('#loadData').click();
-    });
-    $('#loadData').on('click', function() {
-$('#siteloader').load('http://127.0.0.1:8000/chat/dialogs/{{user.get_username}}');
-    });
+  <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous">
   </script>
-
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js" integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg==" crossorigin="anonymous"></script>
+  <script src="{% static 'django-jquery/django-jquery.js' %}"></script>
+  <!--<script src="{% static 'django_private_chat/js/django_private_chat.js' %}"></script> -->
+  <script type="text/javascript"></script>
+  {% endblock %}
 </body>
 
 </html>

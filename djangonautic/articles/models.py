@@ -11,7 +11,7 @@ class Article(models.Model):
     # add in author later
     #thumb = models.ImageField(default='defaults.gif',blank=True)
     like = models.IntegerField(default=0)
-    userliked =  models.TextField(max_length=100, default='hi')
+    userliked =  models.TextField(max_length=100, blank=True)
     thumb = models.ImageField(default='default.gif',blank=True)
     author = models.ForeignKey(User,on_delete=models.CASCADE, default=None)
 

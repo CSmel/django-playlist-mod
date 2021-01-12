@@ -12,13 +12,17 @@
 <p>{{ article.body }}</<p>
 <p>{{ article.date }}</p>
 <p></p>
+
 <form id="likeForm" method="POST" action=".">
-{% csrf_token %}
-<button class="showList" type="submit" id="#likeButtonThumb"  class="fabutton">
+      <input type='hidden' value='{{article.id}}' name='id'>
+{% csrf_token %}<div id="hoverLike">
+
+<button class="showList fabutton" type="submit" id="#likeButtonThumb">
       <i class="fas disable fa-thumbs-up"></i><span id="likeCount" value="{{article.like}}">{{article.like}}</span>
 
 
-</button></form>
+</button>
+  </div></form>
 
 <div id="likedContainer">
 <h4>Like</h4>
@@ -72,27 +76,27 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous"></script>
 <script type="text/javascript">
+  /*jshint esversion: 6 */
   $(document).ready(function(){
-      if ($('#likedContainer:contains("csmel")')) {
+ var username = $('#current-user').text();
+      if ($('#likedContainer:contains("'+username+'")').length > 0) {
         $(".fabutton").prop("disabled", true);
-        $(".disable").css("color","red");
+        $(".disable").css("color","#4080FF");
       }
-      else{return;}
+      else{ return false;}
    });
 
-
 $('#likedContainer').hide();
-    $(".showList").mouseover(function(){
+    $("#hoverLike").mouseover(function(){
       $('#likedContainer').show();
     });
-    $(".showList").mouseout(function(){
+    $("#hoverLike").mouseout(function(){
       $('#likedContainer').hide();
     });
   // form upload
 $("#likeButtonThumb").on("click", function(){
   $('#likeForm').submit();
 });
-
 
  // form upload
  $('#likeForm').submit(function(e){
@@ -123,25 +127,21 @@ const csrftoken = getCookie('csrftoken');
          type: 'POST',
          data: formData,
          success: function (response) {
-           if (response === 'disabled'){
-            $(".fabutton").prop("disabled", true);
-            $(".disable").css("color","red")
+           if (response === '1'){
+            $(".showList").prop("disabled", true);
+            $(".disable").css("color","#4080FF");
+            $('#likeCount').html(response);
            }
            else{
              $('#likeCount').html(response);
 
            }
-console.log('response',response)
-
          },
          cache: false,
          contentType: false,
          processData: false
      });
-
  });
- // end
-
 
 </script>
 {% endblock %}

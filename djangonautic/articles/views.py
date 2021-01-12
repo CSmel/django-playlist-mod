@@ -56,61 +56,10 @@ def postpreference(request, postid, userpreference):
 
                         valueobj= int(valueobj)
                         userpreference= int(userpreference)
-                        if valueobj != userpreference:
-                                obj.delete()
-
-                                upref= Preference()
-                                upref.user= request.user
-                                upref.post= eachpost
-
-                                upref.value= userpreference
-
-
-                                if userpreference == 1 and valueobj != 1:
-                                        eachpost.like += 1
-                                        eachpost.userliked += "  " + request.user.username
-                                        msg = "The operation has been received correctly."
-                                        #eachpost.dislikes -=1
-                                elif userpreference == 2 and valueobj != 2:
-                                        #eachpost.dislikes += 1
-                                        eachpost.like -= 1
-
-
-                                upref.save()
-
-                                eachpost.save()
-
-
-                                context= {'eachpost': eachpost,
-                                  'postid': postid}
-                                return HttpResponse(msg)
-                                return render (request, 'articles/article_detail_ajax.html', context)
-
-                        elif valueobj == userpreference:
-                                obj.delete()
-
-                                if userpreference == 1:
-                                        eachpost.like -= 1
-                                        eachpost.userliked += "  " + request.user.username
-
-                                elif userpreference == 2:
-                                        #eachpost.dislikes -= 1
-
-                                  eachpost.save()
-
-                                context= {'eachpost': eachpost,
-                                  'postid': postid}
-                                return HttpResponse(eachpost.like)
-                                return render (request, 'articles/article_detail_ajax.html', context)
-
-
-
 
                 except Preference.DoesNotExist:
                         upref= Preference()
-
                         upref.user= request.user
-
                         upref.post= eachpost
 
                         upref.value= userpreference
@@ -120,7 +69,10 @@ def postpreference(request, postid, userpreference):
                         if userpreference == 1:
 
                                 try:
-                                    Article.objects.get(userliked__contains=request.user.username)
+                                    article_id = request.POST.get('id')
+                                    Article.objects.get(id=article_id, userliked__contains=request.user.username)
+
+                                    #Article.objects.get(userliked__contains=request.user.username)
                                 except Article. DoesNotExist:
                                     eachpost.userliked += "  " + request.user.username
                                     eachpost.like += 1
@@ -134,13 +86,6 @@ def postpreference(request, postid, userpreference):
                                 #eachpost.dislikes +=1
 
                           upref.save()
-
-
-
-
-
-
-
                         context= {'eachpost': eachpost,
                           'postid': postid}
 
