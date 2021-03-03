@@ -36,7 +36,7 @@
                                     <img class="{% if msg.sender != request.user %}opponent_user_mess{% else %}{% endif %}" src="" />
                                     <span class="message-text">{{ msg.text }}</span>
 
-                                    <span class="timestamp"> <span
+                                    <span class="timestamp"> <span style="display: hidden"
                                             data-livestamp="{{ msg.get_formatted_create_datetime }}">{{ msg.get_formatted_create_datetime }}</span></span>
                                 </p>
                             </div>
@@ -64,7 +64,9 @@
 
     </div>
     </div>
+    {% block outside_timestamp %}
 
+      {% endblock %}
 {% endblock %}
 {% block customTag %}
 {% endblock %}
@@ -80,25 +82,29 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollmonitor/1.2.4/scrollMonitor.js" integrity="sha512-tXA4sVTQWtMwrZT/gP8GhRQlIlJzG6Jq3hFLifWs1Hy3XLVhYQaPctKNdBeLjLWOrprVhraKtQ1+S+OUhzPkDQ==" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollmonitor/1.2.4/scrollMonitor.js.map" type="application/octet-stream"></script>
     <script>
-$('header').css('padding','0')
-$('.timestamp').hide()
+$('header').css({'padding':'0','margin-left':'0'})
+
 timeStampHover()
 function timeStampHover (){
   $('.timestamp').hide()
   $('.pull-left').each(function () {
       $(this).hover(function () {
-          $(this).find('.timestamp').show();
-          $(this).find('.message-text').hide();
-          $(this).find('[data-livestamp]').css("background-color","red")
+          // $(this).find('.timestamp').show();
+          // $(this).find('.message-text').hide();
+          $text = $(this).find('[data-livestamp]').text()
+          $top = $(this).offset().top  - $(window).scrollTop();
+          $(".outside-hover", parent.document).css({"transform":"translate(66vw,"+$top+"px)"}).show().text($text);
       },function(){
           $(this).find('.timestamp').hide();
           $(this).find('.message-text').show();
+          $(".outside-hover", parent.document).css("transform","translate(300px,"+$top+"px)").hide();
       } )
   });$('.pull-right').each(function () {
       $(this).hover(function () {
           $(this).find('.timestamp').show();
           $(this).find('.message-text').hide();
-          $(this).find('[data-livestamp]').css("margin-left","-200px")
+          $(this).find('[data-livestamp]').css({"margin":"0"})
+
       },function(){
           $(this).find('.timestamp').hide();
             $(this).find('.message-text').show();
@@ -204,34 +210,53 @@ $("#messages").animate({ scrollTop: $("#messages").height() }, "slow");
             }
             function addNewMessage(packet) {
 
+              var imgSrc = $('#opponent_user', parent.document).attr('src')
+
+
               $("#senderPacket").val(packet['sender_name'])
                 var msg_class = "";
                 if (packet['sender_name'] != $("#owner_username").val()) {
                     msg_class = "pull-left";
-
+                     msgElem =
+                        $('<div class="row msg-unread" data-id="' + packet.message_id + '">' +
+                            '<p class="' + msg_class + '">' +
+                            '<img class="opponent_user_mess" src="'+imgSrc+'"/>'+
+                            packet['message'] +
+                            ' <span class="timestamp">&ndash; <span data-livestamp="' + packet['created'] + '"> ' + packet['created'] + '</span></span> ' +
+                            '</p> ' +
+                            '</div>');
                 } else {
                     msg_class = "pull-right";
+                   msgElem =
+                        $('<div class="row msg-unread" data-id="' + packet.message_id + '">' +
+                            '<p class="' + msg_class + '">' +
+                            '<span class="username">' + packet['sender_name'] + ': </span>' +
+                            packet['message'] +
+                            ' <span class="timestamp">&ndash; <span data-livestamp="' + packet['created'] + '"> ' + packet['created'] + '</span></span> ' +
+                            '</p> ' +
+                            '</div>');
                 }
-                var msgElem =
-                    $('<div class="row msg-unread" data-id="' + packet.message_id + '">' +
-                        '<p class="' + msg_class + '">' +
-                        '<span class="username">' + packet['sender_name'] + ': </span>' +
-                        packet['message'] +
-                        ' <span class="timestamp">&ndash; <span data-livestamp="' + packet['created'] + '"> ' + packet['created'] + '</span></span> ' +
-                        '</p> ' +
-                        '</div>');
+
                 $('#messages').append(msgElem);
 
                 scrollToLastMessage()
-                newMessageAlert()
+
                 roundMessRad()
                 timeStampHover()
-                mozScroll()
+                if ($(document).scrollTop() >= $dynamicPosition){
+                    mozScroll()
+
+                    }
+                else{
+
+                    newMessageAlert()
+                    }
+
             }
             function newMessageAlert(){
-$('#newMessageAlert').show()
-var audio = new Audio('{% static "sounds/new-message.mp3" %}')
-  audio.play()
+              $('#newMessageAlert').show()
+            var audio = new Audio('{% static "sounds/new-message.mp3" %}')
+            audio.play()
             }
             function scrollToLastMessage() {
               console.log("scrollToLastMessage Loaded")

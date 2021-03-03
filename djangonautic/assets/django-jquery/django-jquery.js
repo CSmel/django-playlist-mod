@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */
+  $('.outside-hover').hide()
 initialise = function() {
 
   $('.online-duration').each(function(index, value) {
@@ -47,6 +48,7 @@ $(window).on('load',function(){
 $('#loadData').click();
 });
 $('#loadData').on('click', function() {
+  console.log('loaded')
 $('#siteloader').load('http://127.0.0.1:8000/chat/dialogs/{{user.get_username}}');
 });
 
@@ -392,6 +394,7 @@ function disTimecardAddBtn (){
    }
    else if($n+1 === 5){
        $('.form-row:last').remove();
+        $('#id_payroll_set-TOTAL_FORMS').val(4);
    }
 }
 
@@ -414,34 +417,83 @@ var $foo ='';
 
 
 
-function calculateFields(index){
-   $getTotal = $('#id_payroll_set-'+index+'-totalTime').val('0'); //reset value
-  for(var x = 0; x < daysArray.length; x++){
-     $("#id_payroll_set-"+index+"-"+daysArray[x]+"Time").change(function(){
-       $selVal = $("#id_payroll_set-"+index+"-payType").find(":selected").val();
-
-       $val = $(this).val();
-       $getTotal = $('#id_payroll_set-'+index+'-totalTime').val();
-       $total = parseInt($getTotal) + parseInt($val);
-       $('#id_payroll_set-'+index+'-totalTime').val($total).change();
-       if($selVal == 24){ // EPL
-         $foo = 5;
-       }
-       else if($selVal == 1){
-         $foo = 10; // EPL
-       }
-       else if($selVal == 2){
-         $foo = 40; // VAC
-       }
-       else if($selVal == 3){
-         $foo = 25; //SIC
-       }
-       // total amount can't excede balance.-- validate
-       if($total >$foo){
-         alert("you've exceded the amount!");
-       }
+function doneEdit(index){
+  $('.done-time').each(function(index){
+    $(this).click(function(){
+    for(var x = 0; x < daysArray.length; x++){
+      $("#id_payroll_set-"+index+"-"+daysArray[x]+"Time").attr('disabled', 'disabled');
+      calculateFields(index)
+    }
     });
+  });
+
+}
+function edit(index){
+  $('.edit-time').each(function(index){
+    $(this).click(function(){
+    $('#id_payroll_set-'+index+'-totalTime').val('0'); //reset value add edit button
+    for(var x = 0; x < daysArray.length; x++){
+      $("#id_payroll_set-"+index+"-"+daysArray[x]+"Time").removeAttr('disabled');
+    }
+    });
+  });
+}
+
+
+function disableInput(index){
+  for(var x = 0; x < daysArray.length; x++){
+    $("#id_payroll_set-"+index+"-"+daysArray[x]+"Time").attr('disabled', 'disabled');
+
   }
 }
-var g = 2;
-calculateFields(g);
+// function calculateFieldsOnChange(index){
+//
+//   for(var x = 0; x < daysArray.length; x++){
+//      $("#id_payroll_set-"+index+"-"+daysArray[x]+"Time").change(function(){
+//        $selVal = $("#id_payroll_set-"+index+"-payType").find(":selected").val();
+//
+//        $val = $(this).val();
+//        $getTotal = $('#id_payroll_set-'+index+'-totalTime').val();
+//        $total = parseInt($getTotal) + parseInt($val);
+//        $('#id_payroll_set-'+index+'-totalTime').val($total).change();
+//        if($selVal == 0){ // EPL
+//          $foo = Null;
+//        }
+//        else if($selVal == 1){
+//          $foo = 10; // EPL
+//        }
+//        else if($selVal == 2){
+//          $foo = 40; // VAC
+//        }
+//        else if($selVal == 3){
+//          $foo = 25; //SIC
+//        }
+//        // total amount can't excede balance.-- validate
+//        if($total >$foo){
+//          alert("you've exceded the amount!");
+//        }
+//     });
+//   }
+// }
+function calculateFields(index){
+$total = 0;
+  for(var x = 0; x < daysArray.length; x++){
+$("#id_payroll_set-"+index+"-"+daysArray[x]+"Time").each(function(){
+ $val = $(this).val();
+  $total += parseInt($val);
+  $('#id_payroll_set-'+index+'-totalTime').val($total).change();
+
+})
+
+
+
+
+  }
+}
+$(".form-row").each(function(index){
+// disableInput(index);
+var g = $(this).index()
+calculateFieldsOnChange(g);
+doneEdit(g);
+edit(g);
+});

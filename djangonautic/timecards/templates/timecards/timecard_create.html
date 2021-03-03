@@ -9,10 +9,12 @@
     {% for p in payroll %}
 
     <form style="width: 100%; border: 2px solid red" action="" method="POST">
-      <input type="text" style="display: none" placeholder="enter anything" name="curr_t_input" value="{{p.currentTime|date:'Y-m-d' }}" id="curr_t_input" /><br />
-      <span class="date-browse">
-        <span class="previous-month-fa"><input type="submit" value="" name="prevMonth"><i class="fas fa-angle-left"></i></span> {{p.startTime|date:'Y-m-d' }} <strong>-</strong> {{p.endTime|date:'Y-m-d'}}<span class="next-month-fa"><input
-            type="submit" value="" name="nextMonth"><i class="fas fa-angle-right"></i></span>
+      <div class="btn-group" role="group" aria-label="...">
+  <button type="submit" value="" name="prevMonth" class="btn btn-default"><i class="fas fa-angle-left"></i></button>
+  <button type="button" class="btn btn-default">{{p.startTime|date:'Y-m-d' }} <strong>-</strong> {{p.endTime|date:'Y-m-d'}}</button>
+  <button type="submit" value="" name="nextMonth" class="btn btn-default"><i class="fas fa-angle-right"></i></button>
+</div>
+      <input type="text" placeholder="enter anything" style="display: none" name="curr_t_input" value="{{p.currentTime|date:'Y-m-d' }}" id="curr_t_input" />
         {% csrf_token %}
     </form>
 
@@ -32,11 +34,19 @@
       {% for hidden in timecard_formset.hidden_fields %}
       {{ hidden }}
       {% endfor %}
+      {% if timecard_formset.errors %}
       {% for field in timecard_formset %}
-      <div class="row form-row">
+      {% for error in field.errors %}
+      <p style="color: red"> {{ error }} </p>
+      {% endfor %}
+      {% endfor %}
+      {% endif %}
+      {% for field in timecard_formset %}
+      <div class="row row-no-gutters form-row">
         <div class="input-group-append">
           <button type="submit" value="" name="add-model-{{forloop.counter0}}" class="btn btn-success add-form-row">+</button>
-
+          <button type="button" class="btn edit-time"><small>Edit</small></button>
+          <button type="button" class="btn done-time"><small>Done</small></button>
           <div class="background-append">
 
             <div class="hide-show-append">
@@ -47,7 +57,9 @@
 
               </div>
 
-              {{field.startTime}}
+              <div style="display:none">
+                {{field.startTime}}
+                </div>
 
 
 
@@ -124,45 +136,45 @@
 
 </div>
 <div class="container-fluid">
-{% for x in payrollTotal %}
-<div class="row">
-  <div class="col-md-2 col-md-offset-1">
-    <table  class="table table-bordered  table-dark">
-      <thead>
-        <tr>
-          <th>Pay Code</th>
-          <th>Starting Balance</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>EPL</td>
-          <td>24</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>{{x.begin_bal_epl}}</td>
-          <th scope="row">Current Balance</th>
-        </tr>
-        <tr>
+  {% for x in payrollTotal %}
+  <div class="row">
+    <div class="col-md-2 col-md-offset-1">
+      <table class="table table-bordered  table-dark">
+        <thead>
+          <tr>
+            <th>Pay Code</th>
+            <th>Starting Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>EPL</td>
+            <td>24</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>{{x.begin_bal_epl}}</td>
+            <th scope="row">Current Balance</th>
+          </tr>
+          <tr>
 
-          <td>-</td>
-          <td>{{x.current_week_epl}}</td>
-          <th scope="row">Current Week</th>
-        </tr>
-        <tr>
+            <td>-</td>
+            <td>{{x.current_week_epl}}</td>
+            <th scope="row">Current Week</th>
+          </tr>
+          <tr>
 
-          <td></td>
-          <td>{{x.end_bal_epl}}</td>
-          <th scope="row">After</th>
-        </tr>
-      </tbody>
-    </table>
+            <td></td>
+            <td>{{x.end_bal_epl}}</td>
+            <th scope="row">After</th>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
     <div class="col-md-2 col-md-offset-2">
-      <table  class="table table-bordered  table-dark">
+      <table class="table table-bordered  table-dark">
         <thead>
           <tr>
             <th>Pay Code</th>
@@ -194,43 +206,44 @@
           </tr>
         </tbody>
       </table>
-      </div>      <div class="col-md-2  col-md-offset-2">
-              <table  class="table table-bordered  table-dark">
-                <thead>
-                  <tr>
-                    <th>Pay Code</th>
-                    <th>Starting Balance</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>VAC</td>
-                    <td>500</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>{{x.begin_bal_vac}}</td>
-                    <th scope="row">Current Balance</th>
-                  </tr>
-                  <tr>
+    </div>
+    <div class="col-md-2  col-md-offset-2">
+      <table class="table table-bordered  table-dark">
+        <thead>
+          <tr>
+            <th>Pay Code</th>
+            <th>Starting Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VAC</td>
+            <td>500</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>{{x.begin_bal_vac}}</td>
+            <th scope="row">Current Balance</th>
+          </tr>
+          <tr>
 
-                    <td>-</td>
-                    <td>{{x.current_week_vac}}</td>
-                    <th scope="row">Current Week</th>
-                  </tr>
-                  <tr>
+            <td>-</td>
+            <td>{{x.current_week_vac}}</td>
+            <th scope="row">Current Week</th>
+          </tr>
+          <tr>
 
-                    <td></td>
-                    <td>{{x.end_bal_vac}}</td>
-                    <th scope="row">After</th>
-                  </tr>
-                </tbody>
-              </table>
-              </div>
+            <td></td>
+            <td>{{x.end_bal_vac}}</td>
+            <th scope="row">After</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-{% endfor %}
-  </div>
+  {% endfor %}
+</div>
 <script src="/static/slugify.js"></script>
 
 

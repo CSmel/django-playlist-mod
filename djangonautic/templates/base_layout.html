@@ -12,7 +12,7 @@
   <meta name="author" content="SitePoint">
   {% endblock %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
   <link rel="stylesheet" href="{% static '\fontawesome\fontawesome-free-5.14.0-web\css\all.css' %}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw=="
@@ -29,63 +29,70 @@
   <header class="wrapper">
     {% block chatModalMid %}
     {% if user.is_authenticated %}
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-igloo"></i></a>
+
         </div>
-        <ul class="nav navbar-nav">
 
-          <li><a href="{% url 'articles:create' %}">New Article</a></li>
-          <li><a href="{% url 'groups:grouplist' %}">Group</a></li>
-          <li><a href="{% url 'timecards:timecardview' %}">Time Card</a></li>
-          <li><a href="{% url 'helpdesk:home' %}">Help Desk</a></li>
-        </ul>
-        <ul class=" nav navbar-nav navbar-right">
-          <li> {% if user.profile.avatar.url|length > 0 %}
-            <img class="small-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">
-          </li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'articles:create' %}">New Article</a></li>
+            <li><a href="{% url 'groups:grouplist' %}">Group</a></li>
+            <li><a href="{% url 'timecards:timecardview' %}">Time Card</a></li>
+            <li><a href="{% url 'helpdesk:home' %}">Help Desk</a></li>
+          </ul>
 
-          <li>
+          <ul class=" nav navbar-nav navbar-right">
+            <li> {% if user.profile.avatar.url|length > 0 %}
+              <img class="small-profile" src="{{ user.profile.avatar.url }}" alt="larg profile image">
+            </li>
+            <li>
+              <a href="{% url 'accounts:viewProfile' pk=user.id %}">
+                <div id="current-user">{{user.get_username}}</div>
+              </a>
+            </li> {% else %}
+            <li>
+              <img class="small-profile" src="{% static 'default/profile.png' %}" alt="larg profile image">
+            </li>
+            <li>
+              <a href="{% url 'accounts:viewProfile' pk=user.id %}">
+                <div id="current-user">{{user.get_username}}</div>
+              </a>
+              {% endif %}
+            </li>
+            <li>
+              <form style=" margin-top: 19%" action="{% url 'accounts:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+              </form>
+            </li>
+          </ul>
+          {% else %} <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
 
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+              </ul>
 
-            <a href="{% url 'accounts:viewProfile' pk=user.id %}">
-              <div id="current-user">{{user.get_username}}</div>
-            </a>
-          </li> {% else %}
-          <li>
-
-            <img class="small-profile" src="{% static 'default/profile.png' %}" alt="larg profile image">
-          </li>
-          <li>
-
-            <a href="{% url 'accounts:viewProfile' pk=user.id %}">
-              <div id="current-user">{{user.get_username}}</div>
-            </a>
-            {% endif %}
-          </li>
-          <li>
-            <form style=" margin-top: 19%" action="{% url 'accounts:logout' %}" method="post">
-              {% csrf_token %}
-              <button type="submit">Logout</button>
-            </form>
-          </li>
-        </ul> {% else %} <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container-fluid">
-            <div class="navbar-header">
-
+              {% endif %}
             </div>
-            <ul class="nav navbar-nav">
-              <li><a href="{% url 'accounts:login' %}">Login</a></li>
-              <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
-            </ul>
-
-            {% endif %}
-          </div>
-      </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
     </nav>
-
   </header>
   <div class="wrapper">
 
@@ -102,6 +109,12 @@
     </div>
 
   </div>
+{% block outside_timestamp %}
+<div class="outside-hover">
+
+  </div>
+  {% endblock %}
+
   {% if user.is_authenticated %}
   {% block extra_js %}{% endblock extra_js %}
   {% block customTag %}

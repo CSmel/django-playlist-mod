@@ -26,6 +26,10 @@ def end_time():
 class PayrollProfile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,default='csmel')
     payrate = models.FloatField(blank=True, null=True, default=22.00)
+    eplBank = models.FloatField(blank=True, null=True, default=24.00)
+    sicBank = models.FloatField(blank=True, null=True, default=24.00)
+    vacBank = models.FloatField(blank=True, null=True, default=500.0)
+
     def __str__(self):
         return F"{self.payrate}"
 class Payroll(models.Model):
@@ -59,8 +63,7 @@ class Payroll(models.Model):
 
 
 class PayrollTotal(models.Model):
-    identifier = models.IntegerField(unique=True, default=0)
-
+    identifier = models.CharField( max_length=32,default='0')
     payroll_REG = models.ForeignKey(Payroll, blank=True, null=True, on_delete=models.CASCADE,related_name="payroll_REG", limit_choices_to={'payType': '0'},)
     paycode = models.CharField( max_length=32,default='Regular')
     rate = models.ForeignKey(PayrollProfile, blank=True, null=True, on_delete=models.SET_NULL,related_name="rate", default=3)
@@ -87,34 +90,37 @@ class PayrollTotal(models.Model):
     begin_bal_sic = models.FloatField(default=0.00)
     current_week_sic = models.FloatField(default=0.00)
     end_bal_sic = models.FloatField(default=0.00)
-
+    def __str__(self):
+        return F"{self.payroll_REG}"
     @receiver(post_save, sender=Payroll)
     def create_or_update_payroll_reg__payroll(sender,instance, created, **kwargs):
         if created:
-            if instance.payType == '0':
+            count_ob = PayrollTotal.objects.filter(identifier=instance.startTime).count()
+            print("count",count_ob)
+            if instance.payType == '0' and count_ob  == 0:
                 rate_instance = PayrollProfile.objects.get(user=33)
-                PayrollTotal.objects.create(payroll_REG=instance, payroll_EPL=None, payroll_VAC=None, payroll_SIC=None, rate=rate_instance )
-
+                PayrollTotal.objects.create(identifier=instance.startTime, payroll_REG=instance, payroll_EPL=None, payroll_VAC=None, payroll_SIC=None, rate=rate_instance )
                 print("Created")
             else:
-                ori_REG = Payroll.objects.get(payType='0')
-                if  Payroll.objects.filter(payType='1').exists():
-                    ori_EPL = Payroll.objects.get(payType='1')
+                ori_REG = Payroll.objects.get(startTime=instance.startTime, payType='0')
+                if  Payroll.objects.filter(startTime=instance.startTime, payType='1').exists():
+                    ori_EPL = Payroll.objects.get(startTime=instance.startTime, payType='1')
                 else:
                     ori_EPL = None
-                if Payroll.objects.filter(payType='2').exists():
-                    ori_VAC = Payroll.objects.get(payType='2')
+                if Payroll.objects.filter(startTime=instance.startTime, payType='2').exists():
+                    ori_VAC = Payroll.objects.get(startTime=instance.startTime, payType='2')
                 else:
                     ori_VAC = None
-                if Payroll.objects.filter(payType='3').exists():
-                    ori_SIC = Payroll.objects.get(payType='3')
+                if Payroll.objects.filter(startTime=instance.startTime, payType='3').exists():
+                    ori_SIC = Payroll.objects.get(startTime=instance.startTime, payType='3')
                 else:
                     ori_SIC = None
 
                 rate_instance = PayrollProfile.objects.get(user=33)
 
-                PayrollTotal.objects.filter(identifier='0').update(payroll_REG=ori_REG, payroll_EPL=ori_EPL, payroll_VAC=ori_VAC , payroll_SIC=ori_SIC, rate=rate_instance )
-                pt = PayrollTotal.objects.get(identifier='0', paycode='Regular')
+                PayrollTotal.objects.filter(identifier=instance.startTime).update(payroll_REG=ori_REG, payroll_EPL=ori_EPL, payroll_VAC=ori_VAC , payroll_SIC=ori_SIC, rate=rate_instance )
+                pt = PayrollTotal.objects.get(identifier=instance.startTime, paycode='Regular')
+
                 pt.save()
                 print("Updated")
 
@@ -142,23 +148,32 @@ class PayrollTotal(models.Model):
         if self.payroll_EPL is not None:
             my_pay_epl = self.payroll_EPL
 
-            self.begin_bal_epl = 24
+            self.begin_bal_epl = my_pr.eplBank
             self.current_week_epl = my_pay_epl.totalTime
             self.end_bal_epl = self.begin_bal_epl - self.current_week_epl
-        elif self.payroll_EPL is None:
-                self.current_week_epl = 0
-                self.end_bal_epl = 0
-
+            my_pr.eplBank = my_pr.eplBank - self.current_week_epl
+            PayrollProfile.objects.filter(user=33).update(eplBank=my_pr.eplBank )
+            pp = PayrollProfile.objects.get(user=33)
+            pp.save()
         #VACATION
         if self.payroll_VAC is not None:
             my_pay_vac = self.payroll_VAC
+			
+            self.begin_bal_vac = my_pr.vacBank
             self.current_week_vac = my_pay_vac.totalTime
             self.end_bal_vac = self.begin_bal_vac - self.current_week_vac
-
-        #VACATION
+            my_pr.vacBank = my_pr.vacBank - self.current_week_vac
+            PayrollProfile.objects.filter(user=33).update(vacBank=my_pr.vacBank )
+            pp = PayrollProfile.objects.get(user=33)
+            pp.save()
+        #SIC
         if self.payroll_SIC is not None:
             my_pay_sic = self.payroll_SIC
+            self.begin_bal_sic = my_pr.sicBank
             self.current_week_sic = my_pay_sic.totalTime
             self.end_bal_sic = self.begin_bal_sic - self.current_week_sic
-
+            my_pr.sicBank = my_pr.sicBank - self.current_week_sic
+            PayrollProfile.objects.filter(user=33).update(sicBank=my_pr.sicBank )
+            pp = PayrollProfile.objects.get(user=33)
+            pp.save()
         return super(PayrollTotal, self).save(*args, **kwargs)

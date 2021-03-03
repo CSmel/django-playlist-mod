@@ -5,10 +5,10 @@ from django.urls import reverse_lazy, reverse
 from .forms import CreateTimecard
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-from .models import Payroll, PayrollTotal
+from .models import Payroll, PayrollTotal, PayrollProfile
 from django.views.generic.list import ListView
 from django.contrib.auth.models import User
-from django.core.exceptions import PermissionDenied
+from django.core.exceptions import PermissionDenied, ObjectDoesNotExist
 
 from django.utils.safestring import mark_safe
 from django.http import HttpResponse, HttpResponseRedirect
@@ -32,7 +32,7 @@ def timecard_create(request, pk):
         days = sdate + timedelta(days=i)
         sevendays.append(days)
     payroll = Payroll.objects.filter(startTime__startswith='2020-12-21', payType='0')
-    payrollTotal = PayrollTotal.objects.all()
+    payrollTotal = PayrollTotal.objects.filter(identifier='2020-12-21')
     themonth = 12
     theyear = 2020
     mycalender =  calendar.monthcalendar(theyear, themonth)
@@ -54,62 +54,98 @@ def timecard_create(request, pk):
     if request.user.is_authenticated and request.user.id == user.id:
         if 'timesheetBtn' in request.POST:
             timecard_formset = PayrollFormset(request.POST, request.FILES,instance=user,)
+            prev_total = request.POST.get("payroll_set-3-totalTime")
+            ppt = PayrollProfile.objects.get(user=33)
+            pptEPL = ppt.eplBank
+            pptVAC = ppt.eplVac
             if timecard_formset.is_valid():
-                convert_start = request.POST.get('startVal')
-                timecard_formset.save()
-                return redirect('timecards:timecardview')
-        elif 'add-model-0' in request.POST:
-            timecard_formset = PayrollFormset(request.POST, request.FILES,instance=user,)
-            if timecard_formset.is_valid():
-                convert_start = request.POST.get('startVal')
-                timecard_formset.save()
-                return redirect('timecards:timecardview')
-        elif 'add-model-1' in request.POST:
-            timecard_formset = PayrollFormset(request.POST, request.FILES,instance=user,)
-            if timecard_formset.is_valid():
-                convert_start = request.POST.get('startVal')
-                timecard_formset.save()
-                return redirect('timecards:timecardview')
-        elif 'add-model-2' in request.POST:
-            timecard_formset = PayrollFormset(request.POST, request.FILES,instance=user,)
-            if timecard_formset.is_valid():
-                convert_start = request.POST.get('startVal')
-                timecard_formset.save()
-                return redirect('timecards:timecardview')
-        elif 'remove-model-0' in request.POST:
-             remove_pay_type = request.POST.get('payroll_set-0-payType')
-             remove_startswith = request.POST.get('payroll_set-0-startTime')
-             print (remove_startswith)
-             Payroll.objects.filter(startTime__startswith=remove_startswith, payType=remove_pay_type).delete()
-             return render(request,'timecards/timecard_create.html',{'payrollTotal':payrollTotal,'payroll':payroll,'timecard_formset':timecard_formset})
-        elif 'remove-model-1' in request.POST:
-             remove_pay_type = request.POST.get('payroll_set-1-payType')
-             remove_startswith = request.POST.get('payroll_set-1-startTime')
-             print (remove_startswith)
-             Payroll.objects.filter(startTime__startswith=remove_startswith, payType=remove_pay_type).delete()
-             return render(request,'timecards/timecard_create.html',{'payrollTotal':payrollTotal,'payroll':payroll,'timecard_formset':timecard_formset})
-        elif 'remove-model-2' in request.POST:
-             remove_pay_type = request.POST.get('payroll_set-2-payType')
-             remove_startswith = request.POST.get('payroll_set-2-startTime')
-             print (remove_startswith)
-             Payroll.objects.filter(startTime__startswith=remove_startswith, payType=remove_pay_type).delete()
-             return render(request,'timecards/timecard_create.html',{'payrollTotal':payrollTotal,'payroll':payroll,'timecard_formset':timecard_formset})
-        elif 'remove-model-3' in request.POST:
-             remove_pay_type = request.POST.get('payroll_set-3-payType')
-             remove_startswith = request.POST.get('payroll_set-3-startTime')
-             print (remove_startswith)
-             Payroll.objects.filter(startTime__startswith=remove_startswith, payType=remove_pay_type).delete()
-             return render(request,'timecards/timecard_create.html',{'payrollTotal':payrollTotal,'payroll':payroll,'timecard_formset':timecard_formset})
-        elif 'prevMonth' in request.POST:
+                if float(prev_total) > float(pptEPL):
+                    html = "<html><body>Errors,You only have" +str(pptEPL)+" left in your bank Go back</body></html>"
+                    return HttpResponse(html)
+                else:
+                    convert_start = request.POST.get('startVal')
+                    timecard_formset.save()
+                    return redirect('timecards:timecardview')
+
+
+        for x in range(4):
+            if 'add-model-'+str(x)  in request.POST:
+                timecard_formset = PayrollFormset(request.POST, request.FILES,instance=user,)
+                prev_total = request.POST.get("payroll_set-"+str(x)+"-totalTime")
+                get_paytype = request.POST.get("payroll_set-"+str(x)+"-payType")
+                ppt = PayrollProfile.objects.get(user=33)
+                pptEPL = ppt.eplBank
+                pptVAC = ppt.vacBank
+                pptVAC = ppt.sicBank
+                if timecard_formset.is_valid():
+                    if get_paytype == '1':
+                        if float(prev_total) > float(pptEPL):
+                            html = "<html><body>Errors, EPL"+str(pptEPL)+" Go back</body></html>"
+                            return HttpResponse(html)
+                        else:
+                            convert_start = request.POST.get('startVal')
+                            timecard_formset.save()
+                            return redirect('timecards:timecardview')
+                    elif get_paytype == '2':
+                        if float(prev_total) > float(pptVAC):
+                            html = "<html><body>Errors,VACATION"+str(pptVAC)+" Go back</body></html>"
+                            return HttpResponse(html)
+                        else:
+                            convert_start = request.POST.get('startVal')
+                            timecard_formset.save()
+                            return redirect('timecards:timecardview')
+                    elif get_paytype == '3':
+                        if float(prev_total) > float(pptSIC):
+                            html = "<html><body>Errors,VACATION"+str(pptSIC)+" Go back</body></html>"
+                            return HttpResponse(html)
+                        else:
+                            convert_start = request.POST.get('startVal')
+                            timecard_formset.save()
+                            return redirect('timecards:timecardview')
+                    else:
+                        convert_start = request.POST.get('startVal')
+                        timecard_formset.save()
+                        return redirect('timecards:timecardview')
+            else:
+                print('add', x)
+        for x in range(4):
+            if 'remove-model-'+str(x) in request.POST:
+                print("Found",[x])
+                remove_pay_type = request.POST.get("payroll_set-"+str(x)+"-payType")
+                remove_startswith = request.POST.get("payroll_set-"+str(x)+"-startTime")
+                prev_total = request.POST.get("payroll_set-"+str(x)+"-totalTime")
+
+                update_total = PayrollProfile.objects.get(user=33)
+                nt = float(prev_total) + update_total.eplBank
+                print (remove_startswith)
+                PayrollProfile.objects.filter(user=33).update(eplBank=nt)
+
+                Payroll.objects.filter(startTime__startswith=remove_startswith, payType=remove_pay_type).delete()
+                pt = PayrollTotal.objects.get(identifier=remove_startswith)
+                pp = PayrollProfile.objects.get(user=33)
+
+                pt.current_week_epl = 0
+                pt.end_bal_epl = pp.eplBank
+                pt.save()
+                return render(request,'timecards/timecard_create.html',{'payrollTotal':payrollTotal,'payroll':payroll,'timecard_formset':timecard_formset})
+            else:
+                print("remove")
+
+        if 'prevMonth' in request.POST:
             #day = datetime.strptime(request.POST.get('curr_t_input'), '%Y-%m-%d').strftime('%Y-%m-%d')
 
             day = request.POST.get('curr_t_input')
-            dt = datetime.strptime(day, '%Y-%m-%d')-timedelta(days=6)
+            dt = datetime.strptime(day, '%Y-%m-%d')-timedelta(days=7)
             start = dt - timedelta(days=dt.weekday())
             convert_start = datetime.strftime(start, '%Y-%m-%d')
-            payroll = Payroll.objects.filter(startTime__startswith=convert_start)
-            timecard_formset = PayrollFormset(instance=user, queryset=Payroll.objects.filter(startTime__startswith=convert_start))
+            payroll = Payroll.objects.filter(startTime__startswith=convert_start, payType='0')
+            try:
+                Payroll.objects.get(startTime__startswith=convert_start, payType='0')
+            except ObjectDoesNotExist:
 
+                return HttpResponse("Not Here")
+            timecard_formset = PayrollFormset(instance=user, queryset=Payroll.objects.filter(startTime__startswith=convert_start))
+            payrollTotal = PayrollTotal.objects.filter(identifier=convert_start)
             # format date/day myheader
             sdate = start  # start date
             sevendays = []
@@ -117,23 +153,26 @@ def timecard_create(request, pk):
                 days = sdate + timedelta(days=i)
                 sevendays.append(days)
 
-            return render(request,'timecards/timecard_create.html',{'sevendays':sevendays,'payroll':payroll,'timecard_formset':timecard_formset,'start':convert_start})
+            return render(request,'timecards/timecard_create.html',{'payrollTotal':payrollTotal,'sevendays':sevendays,'payroll':payroll,'timecard_formset':timecard_formset,'start':convert_start})
         elif 'nextMonth' in request.POST:
             #day = datetime.strptime(request.POST.get('curr_t_input'), '%Y-%m-%d').strftime('%Y-%m-%d')
             day = request.POST.get('curr_t_input')
-            dt = datetime.strptime(day, '%Y-%m-%d')+timedelta(days=6)
+            dt = datetime.strptime(day, '%Y-%m-%d')+timedelta(days=7)
             start = dt - timedelta(days=dt.weekday())
             convert_start = datetime.strftime(start, '%Y-%m-%d')
-            payroll = Payroll.objects.filter(startTime__startswith=convert_start)
+            payroll = Payroll.objects.filter(startTime__startswith=convert_start, payType='0')
             timecard_formset = PayrollFormset(instance=user, queryset=Payroll.objects.filter(startTime__startswith=convert_start))
+            payrollTotal = PayrollTotal.objects.filter(identifier=convert_start)
+
             # format date/day myheader
             sdate = start  # start date
+            print("startdate",convert_start)
             sevendays = []
             for i in range(7):
                 days = sdate + timedelta(days=i)
                 sevendays.append(days)
 
-            return render(request,'timecards/timecard_create.html',{'sevendays':sevendays,'payroll':payroll,'timecard_formset':timecard_formset,'start':convert_start})
+            return render(request,'timecards/timecard_create.html',{'payrollTotal':payrollTotal,'day':day, 'start':start,'sevendays':sevendays,'payroll':payroll,'timecard_formset':timecard_formset,'start':start,'convert_start':convert_start})
         return render(request,'timecards/timecard_create.html',{'payrollTotal':payrollTotal,'sevendays':sevendays,'payroll':payroll,'timecard_formset':timecard_formset, 'mycalender': mycalender,'myheader': myheader,})
     else:
         raise PermissionDenied

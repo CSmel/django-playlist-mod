@@ -365,9 +365,11 @@ ul {
   padding-bottom: 30px;
 }
 
-[data-livestamp] {
+.outside-hover {
   position: absolute;
-  background-color: rgba(0, 0, 0, .5) !important;
+  z-index: 99 !important;
+  background-color: black !important;
+  color: white;
   width: 170px;
   overflow: hidden;
   white-space: nowrap;
@@ -543,15 +545,21 @@ $table-dark-hover-bg: red;
   // }
 
 }
+%bolder-text{
+  color:black;
+  text-shadow: 1px 0 black;
+  letter-spacing:2px;
+  font-weight:bold;
 
+}
 @for $i from 0 through 4{
   #id_payroll_set-#{$i}-satTime{
-    background-color: red
-  }
+
+@extend %bolder-text;  }
 }
 @for $i from 0 through 4{
   #id_payroll_set-#{$i}-sunTime{
-    background-color: red
+    @extend %bolder-text;
   }
 }
 @media (min-width: 768px) {
